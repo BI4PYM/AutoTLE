@@ -27,7 +27,7 @@ allTle.write(str(temp.text))
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
 allTle.close()
-Tle = open('TLE.txt', 'w')
+Tle = open('AutoTLE.txt', 'w')
 Tles = Tles.splitlines()
 Tles = [i for i in Tles if i != '']
 
