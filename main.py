@@ -1,4 +1,4 @@
-import os,requests,sys
+import requests
 
 temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt')
 allTle = open('allTLE.txt', 'w')
