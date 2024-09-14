@@ -43,14 +43,14 @@ satelistNumber = [
     '25544U', '27607U', '43017U', '43137U', '43678U', '44909U', '22825U', '40903U', '40911U', '40907U'
     , '40910U', '07530U', '42761U', '42759U', '40908U', '24278U', '42017U', '44881U',
     '48274U', '43803U', '47438U', '43937U', '25338U', '28654U', '33591U', '44387U', '50466U',
-    '54216U','54816U','54684U','53106U','51069U','50988U','51063U','50998U','50999U','51062U',
+    '54216U','54816U','54684U','53106U',
     '49069U','56211U'
 ]
 satelistName = [
     'ISS(ZARYA)', 'SO-50', 'AO-91(FOX-1B)', 'AO-92(FOX-1D)', 'PO-101(DIWATA-2B)', 'RS-44', 'AO-27', 'XW-2A', 'XW-2B', 'XW-2D',
     'XW-2F', 'AO-7', 'CAS-4A', 'CAS-4B', 'CAS-3H(LilacSat-2)', 'FO-29', 'EO-88', 'CAS-6',
     'CSS(TianHe)', 'JO-97', 'UVSQ-SAT', 'FO-99', 'NOAA-15', 'NOAA-18', 'NOAA-19', 'METEOR-M2', 'XW-3(HO-113)'
-    ,'CSS(MengTian)','CAS-10(XW-4)','CAS-5A(FO-118)','GreenCube','TEVEL-2','TEVEL-3','TEVEL-4','TEVEL-5','TEVEL-6','TEVEL-7',
+    ,'CSS(MengTian)','CAS-10(XW-4)','CAS-5A(FO-118)','GreenCube',
     'LEDSAT','InspireSat-7'
 ]
 allTle = open('allTLE.txt', 'r')
