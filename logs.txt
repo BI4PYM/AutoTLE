@@ -4,7 +4,11 @@ C:\Users\Administrator\Documents>C:
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating 6b794023..7d0e4837
+Fast-forward
+ README.md | 2 +-
+ main.py   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 ISS(ZARYA)
@@ -63,12 +67,6 @@ CAS-5A(FO-118)
 54684U
 GreenCube
 53106U
-TEVEL-2
-TEVEL-3
-TEVEL-4
-TEVEL-5
-TEVEL-6
-TEVEL-7
 LEDSAT
 49069U
 InspireSat-7
