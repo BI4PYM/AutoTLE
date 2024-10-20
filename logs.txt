@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2024/10/21 ÖÜÒ» 
-05:46
+06:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -11,6 +11,7 @@ C:\Users\Administrator\Documents\AutoTLE>git pull origin master
 Already up to date.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
+get tles error.
 ISS(ZARYA)
 25544U
 SO-50
@@ -57,7 +58,6 @@ NOAA-18
 NOAA-19
 33591U
 METEOR-M2
-44387U
 XW-3(HO-113)
 50466U
 CSS(MengTian)
