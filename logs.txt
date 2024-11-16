@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2024/11/17 ÖÜÈÕ 
-03:46
+04:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -28,7 +28,6 @@ XW-2A
 XW-2B
 40911U
 XW-2D
-40907U
 XW-2F
 AO-7
 07530U
