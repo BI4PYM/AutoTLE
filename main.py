@@ -73,7 +73,7 @@ satelist = [
     ['53106U','GreenCube'],
     ['49069U','LEDSAT'],
     ['43700U',"QO-100(Es'hail-2)"],
-    ['59112U','SONATE-2']
+    ['59112U','SONATE-2'],
     ['99130U','ASRTU-1']
 ]
 allTle = open('allTLE.txt', 'r')
