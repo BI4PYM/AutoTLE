@@ -11,8 +11,13 @@ def delete_proxy(proxy):
 , proxies={"http": "http://127.0.0.1:10809"}
 '''
 #proxy = get_proxy().get("proxy")
-temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers)
+
 allTle = open('allTLE.txt', 'w')
+temp = open('localTLE.txt', 'r')
+allTle.write(str(temp.text))
+temp = requests.get('http://asrtu.mqsi.xyz/tle.txt', headers=headers)
+allTle.write(str(temp.text))
+temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers)
 allTle.write(str(temp.text))
@@ -26,7 +31,6 @@ temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=noaa&FORMA
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', headers=headers)
 allTle.write(str(temp.text))
-
 
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
@@ -44,14 +48,14 @@ satelistNumber = [
     , '40910U', '07530U', '42761U', '42759U', '40908U', '24278U', '42017U', '44881U',
     '48274U', '43803U', '47438U', '43937U', '25338U', '28654U', '33591U', '44387U', '50466U',
     '54216U','54816U','54684U','53106U',
-    '49069U','56211U'
+    '49069U', '56211U','99130U'
 ]
 satelistName = [
     'ISS(ZARYA)', 'SO-50', 'AO-91(FOX-1B)', 'AO-92(FOX-1D)', 'PO-101(DIWATA-2B)', 'RS-44', 'AO-27', 'XW-2A', 'XW-2B', 'XW-2D',
     'XW-2F', 'AO-7', 'CAS-4A', 'CAS-4B', 'CAS-3H(LilacSat-2)', 'FO-29', 'EO-88', 'CAS-6',
     'CSS(TianHe)', 'JO-97', 'UVSQ-SAT', 'FO-99', 'NOAA-15', 'NOAA-18', 'NOAA-19', 'METEOR-M2', 'XW-3(HO-113)'
     ,'CSS(MengTian)','CAS-10(XW-4)','CAS-5A(FO-118)','GreenCube',
-    'LEDSAT','InspireSat-7'
+    'LEDSAT','InspireSat-7','ASRTU-1'
 ]
 allTle = open('allTLE.txt', 'r')
 allTles = str(allTle.read())
