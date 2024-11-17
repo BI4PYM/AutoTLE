@@ -21,6 +21,8 @@ temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', heade
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers)
 allTle.write(str(temp.text))
+temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', headers=headers)
+allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/dmc.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/weather.txt', headers=headers)
@@ -52,13 +54,11 @@ satelist = [
     ['44909U','RS-44'],
     ['22825U','AO-27'],
     ['40911U','XW-2B'],
-    ['40907U','XW-2D'],
     ['07530U','AO-7'],
     ['42761U','CAS-4A'],
     ['43937U','CAS-4B'],
     ['40908U','CAS-3H(LilacSat-2)'],
     ['24278U','FO-29'],
-    ['42017U','EO-88'],
     ['44881U','CAS-6'],
     ['48274U','CSS(TianHe)'],
     ['43803U','JO-97'],
