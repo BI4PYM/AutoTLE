@@ -21,3 +21,7 @@ C:\Users\Administrator\Documents\AutoTLE>git add *
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
+[master 5aaa8ca0] Auto upload
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+C:\Users\Administrator\Documents\AutoTLE>git push -u --force origin master 
