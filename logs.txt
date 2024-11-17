@@ -1,27 +1,76 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2024/11/18 ÖÜÒ» 
-01:55
+02:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 76d0c121..5933ab65
+Updating 1d952723..ef77dc8e
 Fast-forward
- README.md | 31 ++++++++++++++++++++++++++++++-
- main.py   |  3 ++-
- 2 files changed, 32 insertions(+), 2 deletions(-)
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
+ISS(ZARYA)
+25544U
+SO-50
+27607U
+AO-91(FOX-1B)
+43017U
+PO-101(DIWATA-2B)
+43678U
+RS-44
+44909U
+AO-27
+22825U
+XW-2B
+40911U
+AO-7
+07530U
+CAS-4A
+42761U
+CAS-4B
+CAS-3H(LilacSat-2)
+40908U
+FO-29
+24278U
+CAS-6
+44881U
+CSS(TianHe)
+48274U
+JO-97
+43803U
+NOAA-15
+25338U
+NOAA-18
+28654U
+NOAA-19
+33591U
+METEOR-M2
+44387U
+XW-3(HO-113)
+50466U
+CSS(MengTian)
+54216U
+CAS-10(XW-4)
+CAS-5A(FO-118)
+54684U
+GreenCube
+53106U
+LEDSAT
+49069U
+QO-100(Es'hail-2)
+43700U
+SONATE-2
+59112U
+ASRTU-1
+99130U
 
 C:\Users\Administrator\Documents\AutoTLE>git add * 
 
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
-[master 5aaa8ca0] Auto upload
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-C:\Users\Administrator\Documents\AutoTLE>git push -u --force origin master 
