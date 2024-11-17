@@ -13,8 +13,8 @@ def delete_proxy(proxy):
 #proxy = get_proxy().get("proxy")
 
 allTle = open('allTLE.txt', 'w')
-temp = open('localTLE.txt', 'r')
-allTle.write(str(temp.text))
+tem = open('localTLE.txt', 'r')
+allTle.write(str(tem.read()))
 temp = requests.get('http://asrtu.mqsi.xyz/tle.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers)
@@ -82,7 +82,7 @@ for i in range(len(satelist)):
     temp = [temp for temp in Tles if satelist[i][0] in temp]
     print(satelist[i][1])
     if satelist[i][0] in allTles:
-        print(satelist[i][1])
+        print(satelist[i][0])
         getTles = satelist[i][1] + '\n' + Tles[Tles.index(temp[0])] + '\n' + Tles[Tles.index(temp[0]) + 1] + '\n'
         Tle.write(getTles)
 allTle.close()
