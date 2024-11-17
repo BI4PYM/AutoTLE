@@ -21,6 +21,8 @@ temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', heade
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers)
 allTle.write(str(temp.text))
+temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', headers=headers)
+allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/dmc.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/weather.txt', headers=headers)
@@ -30,6 +32,8 @@ allTle.write(str(temp.text))
 temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=noaa&FORMAT=tle', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', headers=headers)
+allTle.write(str(temp.text))
+temp = requests.get('http://www.celestrak.com/NORAD/elements/geo.txt', headers=headers)
 allTle.write(str(temp.text))
 
 allTle = open('allTLE.txt', 'r')
@@ -42,29 +46,43 @@ Tle = open('AutoTLE.txt', 'w')
 Tles = Tles.splitlines()
 Tles = [i for i in Tles if i != '']
 
-
-satelistNumber = [
-    '25544U', '27607U', '43017U', '43137U', '43678U', '44909U', '22825U', '40903U', '40911U', '40907U'
-    , '40910U', '07530U', '42761U', '42759U', '40908U', '24278U', '42017U', '44881U',
-    '48274U', '43803U', '47438U', '43937U', '25338U', '28654U', '33591U', '44387U', '50466U',
-    '54216U','54816U','54684U','53106U',
-    '49069U', '56211U','99130U'
-]
-satelistName = [
-    'ISS(ZARYA)', 'SO-50', 'AO-91(FOX-1B)', 'AO-92(FOX-1D)', 'PO-101(DIWATA-2B)', 'RS-44', 'AO-27', 'XW-2A', 'XW-2B', 'XW-2D',
-    'XW-2F', 'AO-7', 'CAS-4A', 'CAS-4B', 'CAS-3H(LilacSat-2)', 'FO-29', 'EO-88', 'CAS-6',
-    'CSS(TianHe)', 'JO-97', 'UVSQ-SAT', 'FO-99', 'NOAA-15', 'NOAA-18', 'NOAA-19', 'METEOR-M2', 'XW-3(HO-113)'
-    ,'CSS(MengTian)','CAS-10(XW-4)','CAS-5A(FO-118)','GreenCube',
-    'LEDSAT','InspireSat-7','ASRTU-1'
+satelist = [
+    ['25544U','ISS(ZARYA)'],
+    ['27607U','SO-50'],
+    ['43017U','AO-91(FOX-1B)'],
+    ['43678U','PO-101(DIWATA-2B)'],
+    ['44909U','RS-44'],
+    ['22825U','AO-27'],
+    ['40911U','XW-2B'],
+    ['07530U','AO-7'],
+    ['42761U','CAS-4A'],
+    ['43937U','CAS-4B'],
+    ['40908U','CAS-3H(LilacSat-2)'],
+    ['24278U','FO-29'],
+    ['44881U','CAS-6'],
+    ['48274U','CSS(TianHe)'],
+    ['43803U','JO-97'],
+    ['25338U','NOAA-15'],
+    ['28654U','NOAA-18'],
+    ['33591U','NOAA-19'],
+    ['44387U','METEOR-M2'],
+    ['50466U','XW-3(HO-113)'],
+    ['54216U','CSS(MengTian)'],
+    ['54816U','CAS-10(XW-4)'],
+    ['54684U','CAS-5A(FO-118)'],
+    ['53106U','GreenCube'],
+    ['49069U','LEDSAT'],
+    ['43700U','QO-100(Es'hail-2)'],
+    ['99130U','ASRTU-1']
 ]
 allTle = open('allTLE.txt', 'r')
 allTles = str(allTle.read())
-for i in range(len(satelistNumber)):
-    temp = [temp for temp in Tles if satelistNumber[i] in temp]
-    print(satelistName[i])
-    if satelistNumber[i] in allTles:
-        print(satelistNumber[i])
-        getTles = satelistName[i] + '\n' + Tles[Tles.index(temp[0])] + '\n' + Tles[Tles.index(temp[0]) + 1] + '\n'
+for i in range(len(satelist)):
+    temp = [temp for temp in Tles if satelist[i][0] in temp]
+    print(satelist[i][1])
+    if satelist[i][0] in allTles:
+        print(satelist[i][1])
+        getTles = satelist[i][1] + '\n' + Tles[Tles.index(temp[0])] + '\n' + Tles[Tles.index(temp[0]) + 1] + '\n'
         Tle.write(getTles)
 allTle.close()
 Tle.close()
