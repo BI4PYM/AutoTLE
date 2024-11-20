@@ -16,3 +16,8 @@ C:\Users\Administrator\Documents\AutoTLE>git add *
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
+[master 850ee7bc] Auto upload
+ 2 files changed, 8 insertions(+), 34011 deletions(-)
+
+C:\Users\Administrator\Documents\AutoTLE>git push -u --force origin master 
+branch 'master' set up to track 'origin/master'.
