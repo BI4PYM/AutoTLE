@@ -68,7 +68,6 @@ satelist = [
     ['44387U','METEOR-M2'],
     ['50466U','XW-3(HO-113)'],
     ['54216U','CSS(MengTian)'],
-    ['54816U','CAS-10(XW-4)'],
     ['54684U','CAS-5A(FO-118)'],
     ['53106U','GreenCube'],
     ['49069U','LEDSAT'],
