@@ -1,19 +1,16 @@
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents>date /t   && time /t 
+C:\Users\Administrator\Documents>date /t   && time /t 
 2024/12/05 ÖÜËÄ 
-00:43
+01:44
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents>C:
+C:\Users\Administrator\Documents>C:
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
+C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 9434ca6d..6b8969a3
-Fast-forward
- main.py | 1 -
- 1 file changed, 1 deletion(-)
+C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
+Already up to date.
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>python main.py  
+C:\Users\Administrator\Documents\AutoTLE>python main.py  
 ISS(ZARYA)
 25544U
 SO-50
@@ -67,13 +64,8 @@ SONATE-2
 AO-123(ASRTU-1)
 99130U
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>git add * 
+C:\Users\Administrator\Documents\AutoTLE>git add * 
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
+C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
-[master beacd717] Auto upload
- 2 files changed, 10882 insertions(+), 10879 deletions(-)
-
-administrator@MINEXIXISERVER C:\Users\Administrator\Documents\AutoTLE>git push -u --force origin master 
-branch 'master' set up to track 'origin/master'.
+C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
