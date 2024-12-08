@@ -15,8 +15,7 @@ def delete_proxy(proxy):
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
-temp = requests.get('http://asrtu.mqsi.xyz/tle.txt', headers=headers)
-allTle.write(str(temp.text))
+
 temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers)
@@ -73,7 +72,7 @@ satelist = [
     ['49069U','LEDSAT'],
     ['43700U',"QO-100(Es'hail-2)"],
     ['59112U','SONATE-2'],
-    ['99130U','AO-123(ASRTU-1)']
+    ['61781U','AO-123(ASRTU-1)']
 ]
 allTle = open('allTLE.txt', 'r')
 allTles = str(allTle.read())
