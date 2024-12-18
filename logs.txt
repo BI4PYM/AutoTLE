@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2024/12/19 ÖÜËÄ 
-05:47
+06:47
 
 C:\Users\Administrator\Documents>C:
 
