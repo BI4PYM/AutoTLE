@@ -1,13 +1,14 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/03/07 ÖÜÎå 
-18:46
+19:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
+Already up to date.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 ISS(ZARYA)
@@ -67,5 +68,6 @@ C:\Users\Administrator\Documents\AutoTLE>git add *
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git rm allTLE.txt 
+rm 'allTLE.txt'
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
