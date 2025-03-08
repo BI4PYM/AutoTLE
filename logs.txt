@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/03/08 ÖÜÁù 
-14:46
+15:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -68,5 +68,6 @@ C:\Users\Administrator\Documents\AutoTLE>git add *
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git rm allTLE.txt 
+rm 'allTLE.txt'
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
