@@ -73,7 +73,8 @@ satelist = [
     ['43700U',"QO-100(Es'hail-2)"],
     ['59112U','SONATE-2'],
     ['61781U','AO-123(ASRTU-1)'],
-    ['62690U','SO-124(HADES-R)']
+    ['62690U','SO-124(HADES-R)'],
+    ['63492U','HADES-ICM']
 ]
 allTle = open('allTLE.txt', 'r')
 allTles = str(allTle.read())
