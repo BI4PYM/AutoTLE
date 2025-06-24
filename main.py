@@ -1,39 +1,9 @@
 import requests
 import sys
+import json
 
-satelist = [
-    ['25544U','ISS(ZARYA)'],
-    ['27607U','SO-50'],
-    ['43017U','AO-91(FOX-1B)'],
-    ['43678U','PO-101(DIWATA-2B)'],
-    ['44909U','RS-44'],
-    ['22825U','AO-27'],
-    ['40911U','XW-2B'],
-    ['07530U','AO-7'],
-    ['42761U','CAS-4A'],
-    ['43937U','CAS-4B'],
-    ['40908U','CAS-3H(LilacSat-2)'],
-    ['24278U','FO-29'],
-    ['44881U','CAS-6'],
-    ['48274U','CSS(TianHe)'],
-    ['43803U','JO-97'],
-    ['25338U','NOAA-15'],
-    ['28654U','NOAA-18'],
-    ['33591U','NOAA-19'],
-    ['44387U','METEOR-M2'],
-    ['50466U','XW-3(HO-113)'],
-    ['54216U','CSS(MengTian)'],
-    ['54684U','CAS-5A(FO-118)'],
-    ['53106U','GreenCube'],
-    ['49069U','LEDSAT'],
-    ['43700U',"QO-100(Es'hail-2)"],
-    ['59112U','SONATE-2'],
-    ['61781U','AO-123(ASRTU-1)'],
-    ['62690U','SO-124(HADES-R)'],
-    ['63492U','SO-125(HADES-ICM)'],
-    ['60209U','MO-122(MESAT-1)']
-]
-
+with open('satelist.json', 'r') as jsonlist:
+    satelist=json.load(jsonlist)
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
     (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
 '''def get_proxy():
