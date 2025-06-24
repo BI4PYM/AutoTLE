@@ -48,7 +48,7 @@ def delete_proxy(proxy):
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
-'''
+
 temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers)
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers)
@@ -67,7 +67,7 @@ temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', head
 allTle.write(str(temp.text))
 temp = requests.get('http://www.celestrak.com/NORAD/elements/geo.txt', headers=headers)
 allTle.write(str(temp.text))
-'''
+
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
 allTle.close()
