@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2025/03/08 ÖÜÁù 
-21:46
+2025/09/20 ÖÜÁù 
+19:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -62,12 +62,17 @@ SONATE-2
 59112U
 AO-123(ASRTU-1)
 61781U
+SO-124(HADES-R)
+62690U
+SO-125(HADES-ICM)
+63492U
+MO-122(MESAT-1)
+60209U
+TEVEL2-3
+63219U
 
-C:\Users\Administrator\Documents\AutoTLE>git add * 
+C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
-
-C:\Users\Administrator\Documents\AutoTLE>git rm allTLE.txt 
-rm 'allTLE.txt'
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
