@@ -1,0 +1,47 @@
+# AutoTLE
+# 已转为MIT许可证
+
+#### 自动化更新HAM常用的卫星TLE星历文件
+#### 帖子：https://www.hellocq.net/forum/read.php?tid=370636 https://forum.hamcq.cn/d/3323
+#### 服务器星历更新频率：每小时检测一次，TLE源数据有变动就会自动更新
+#### 食用方法：把追星软件（如Orbitrn，“追星”等）的TLE来源设置为
+#### http://raw.githubusercontent.com/BI4PYM/AutoTLE/refs/heads/master/AutoTLE.txt
+#### http://autotle.bi4pym.cn/AutoTLE.txt
+#### 注意！有些软件不支持HTTPS
+#### 欢迎推荐常用的或者最新的业余卫星以便加入更新列表！
+#### 服务器正常自动更新！
+#### 目前有
+    ["25544U", "ISS(ZARYA)"], 
+    ["27607U", "SO-50"], 
+    ["43017U", "AO-91(FOX-1B)"], 
+    ["43678U", "PO-101(DIWATA-2B)"], 
+    ["44909U", "RS-44"], 
+    ["22825U", "AO-27"], 
+    ["40911U", "XW-2B"], 
+    ["07530U", "AO-7"], 
+    ["42761U", "CAS-4A"], 
+    ["43937U", "CAS-4B"], 
+    ["40908U", "CAS-3H(LilacSat-2)"], 
+    ["24278U", "FO-29"], 
+    ["44881U", "CAS-6"], 
+    ["48274U", "CSS(TianHe)"], 
+    ["43803U", "JO-97"], 
+    ["25338U", "NOAA-15"], 
+    ["28654U", "NOAA-18"], 
+    ["33591U", "NOAA-19"], 
+    ["44387U", "METEOR-M2"], 
+    ["50466U", "XW-3(HO-113)"], 
+    ["54216U", "CSS(MengTian)"], 
+    ["54684U", "CAS-5A(FO-118)"], 
+    ["53106U", "GreenCube"], 
+    ["49069U", "LEDSAT"], 
+    ["43700U", "QO-100(Es'hail-2)"], 
+    ["59112U", "SONATE-2"], 
+    ["61781U", "AO-123(ASRTU-1)"], 
+    ["62690U", "SO-124(HADES-R)"], 
+    ["63492U", "SO-125(HADES-ICM)"], 
+    ["60209U", "MO-122(MESAT-1)"],
+    ["63219U", "TEVEL2-3"]
+#### 的星历数据
+#### 其中ASRTU-1已获得NORAD编号61781，星历源更改为celestrak。
+## 73！
