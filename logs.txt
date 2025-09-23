@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/09/23 ÖÜ¶þ 
-07:46
+08:46
 
 C:\Users\Administrator\Documents>C:
 
