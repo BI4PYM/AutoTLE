@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/09/24 ÖÜÈý 
-19:46
+20:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -16,8 +16,6 @@ ISS(ZARYA)
 SO-50
 27607U
 AO-91(FOX-1B)
-43017U
-PO-101(DIWATA-2B)
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
