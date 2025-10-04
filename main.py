@@ -6,16 +6,10 @@ with open('satelist.json', 'r') as jsonlist:
     satelist=json.load(jsonlist)
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
     (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
-'''def get_proxy():
-    return requests.get("http://127.0.0.1:5010/get/").json()
 
-def delete_proxy(proxy):
-    requests.get("http://127.0.0.1:5010/delete/?proxy={}".format(proxy))'''
-'''
-, proxies={"http": "http://127.0.0.1:10809"}
-'''
-#proxy = get_proxy().get("proxy")
-proxies={"http": "http://127.0.0.1:13000"}
+#proxies={"http": "http://127.0.0.1:13000"}
+proxies={}
+
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
@@ -64,4 +58,5 @@ for i in range(len(satelist)):
         Tle.write(getTles)
 allTle.close()
 Tle.close()
+
 
