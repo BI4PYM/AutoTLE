@@ -3,7 +3,7 @@
 
 #### 自动化更新HAM常用的卫星TLE星历文件
 #### 帖子：https://www.hellocq.net/forum/read.php?tid=370636 https://forum.hamcq.cn/d/3323
-#### 服务器星历更新频率：每小时检测一次，TLE源数据有变动就会自动更新
+#### 服务器星历更新频率：由于celestrak每两小时检测一次，AutoTLE也将两小时检测一次，保证TLE源数据有变动就会自动更新
 #### 食用方法：把追星软件（如Orbitrn，“追星”等）的TLE来源设置为
 #### http://raw.githubusercontent.com/BI4PYM/AutoTLE/refs/heads/master/AutoTLE.txt
 #### http://autotle.bi4pym.cn/AutoTLE.txt
