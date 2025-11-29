@@ -7,8 +7,8 @@ with open('satelist.json', 'r') as jsonlist:
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
     (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
 
-#proxies={"http": "http://127.0.0.1:13000"}
-proxies={}
+proxies={"http": "http://127.0.0.1:13000"}
+#proxies={}
 
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
@@ -58,5 +58,6 @@ for i in range(len(satelist)):
         Tle.write(getTles)
 allTle.close()
 Tle.close()
+
 
 
