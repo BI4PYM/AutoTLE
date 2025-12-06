@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/12/07 ÖÜÈÕ 
-00:46
+02:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -13,12 +13,6 @@ Already up to date.
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 ISS(ZARYA)
 25544U
-SO-50
-27607U
-AO-91(FOX-1B)
-43017U
-PO-101(DIWATA-2B)
-43678U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
