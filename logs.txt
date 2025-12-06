@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2025/12/06 ÖÜÁù 
-22:46
+2025/12/07 ÖÜÈÕ 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -19,23 +19,6 @@ AO-91(FOX-1B)
 43017U
 PO-101(DIWATA-2B)
 43678U
-RS-44
-44909U
-AO-27
-22825U
-XW-2B
-AO-7
-07530U
-CAS-4A
-CAS-4B
-CAS-3H(LilacSat-2)
-40908U
-FO-29
-24278U
-CAS-6
-44881U
-CSS(TianHe)
-48274U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
