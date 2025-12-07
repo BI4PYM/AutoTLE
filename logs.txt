@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/12/07 ÖÜÈÕ 
-06:46
+08:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -28,10 +28,7 @@ AO-7
 07530U
 CAS-4A
 CAS-4B
-CAS-3H(LilacSat-2)
-40908U
-FO-29
-24278U
+43937U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
