@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2025/12/07 周日 
-22:46
+2025/12/08 周一 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -50,7 +50,23 @@ XW-3(HO-113)
 50466U
 CSS(MengTian)
 CAS-5A(FO-118)
-54684U
+GreenCube
+53106U
+LEDSAT
+QO-100(Es'hail-2)
+43700U
+SONATE-2
+59112U
+AO-123(ASRTU-1)
+61781U
+SO-124(HADES-R)
+62690U
+SO-125(HADES-ICM)
+63492U
+MO-122(MESAT-1)
+60209U
+TEVEL2-3
+63219U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
