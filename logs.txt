@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2025/12/07 ÖÜÈÕ 
-16:46
+18:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -53,14 +53,7 @@ CAS-5A(FO-118)
 GreenCube
 53106U
 LEDSAT
-QO-100(Es'hail-2)
-43700U
-SONATE-2
-59112U
-AO-123(ASRTU-1)
-61781U
-SO-124(HADES-R)
-62690U
+49069U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
