@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2025/12/09 周二 
-22:46
+2025/12/10 周三 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -26,6 +26,47 @@ AO-27
 XW-2B
 AO-7
 07530U
+CAS-4A
+CAS-4B
+CAS-3H(LilacSat-2)
+40908U
+FO-29
+24278U
+CAS-6
+44881U
+CSS(TianHe)
+48274U
+JO-97
+43803U
+NOAA-15
+25338U
+NOAA-18
+28654U
+NOAA-19
+33591U
+METEOR-M2
+44387U
+XW-3(HO-113)
+50466U
+CSS(MengTian)
+CAS-5A(FO-118)
+GreenCube
+53106U
+LEDSAT
+QO-100(Es'hail-2)
+43700U
+SONATE-2
+59112U
+AO-123(ASRTU-1)
+61781U
+SO-124(HADES-R)
+62690U
+SO-125(HADES-ICM)
+63492U
+MO-122(MESAT-1)
+60209U
+TEVEL2-3
+63219U
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
