@@ -1,16 +1,18 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/07 ÖÜÁù 
-01:56
+02:58
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
+Auto-merging AutoTLE.txt
+CONFLICT (content): Merge conflict in AutoTLE.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
-ISS(ZARYA)
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
