@@ -14,19 +14,23 @@ allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
 
+print("GETTING TLE FROM CELESTRAK...")
 for i in range(len(satelist)):
     try:
         print(satelist[i][0],satelist[i][1],satelist[i][2])
         temp = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies)
         allTle.write(str(temp.text))
     except:
-        print("CELESTRAK FAIL.")
+        print("FAIL.")
+    else:
+        print("OK.")
 
+print("SEARCHING FOR TLE...")
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
 allTle.close()
 if '<' in Tles:
-    print('get tles error.')
+    print('GET TLE ERROR.')
 '''    sys.exit(1)'''
 Tle = open('AutoTLE.txt', 'w')
 Tles = Tles.splitlines()
@@ -49,6 +53,7 @@ for i in range(len(satelist)):
         print("NOT FOUND.\n")
 allTle.close()
 Tle.close()
+
 
 
 
