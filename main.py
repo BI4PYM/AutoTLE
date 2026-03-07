@@ -19,7 +19,10 @@ for i in range(len(satelist)):
     try:
         print(satelist[i][0],satelist[i][1],satelist[i][2])
         temp = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies)
-        allTle.write(str(temp.text))
+        if str(temp.text) != "No GP data found":
+            allTle.write(str(temp.text))
+        else:
+            raise ValueError("NOT FOUND")
     except:
         print("FAIL.")
     else:
@@ -53,6 +56,7 @@ for i in range(len(satelist)):
         print("NOT FOUND.\n")
 allTle.close()
 Tle.close()
+
 
 
 
