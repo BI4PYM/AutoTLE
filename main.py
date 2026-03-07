@@ -35,7 +35,7 @@ allTle = open('allTLE.txt', 'r')
 allTles = str(allTle.read())
 for i in range(len(satelist)):
     temp = [temp for temp in Tles if satelist[i][0] in temp]
-    print(satelist[i][0],satelist[i][1],satelist[i][3])
+    print(satelist[i][0],satelist[i][1],satelist[i][2])
     satnogs = requests.get('https://db.satnogs.org/api/tle/?format=3le&norad_cat_id='+satelist[i][0], headers=headers).text
     if satelist[i][0] in allTles:
         print("CELESTRAK OK.\n")
@@ -49,5 +49,6 @@ for i in range(len(satelist)):
         print("NOT FOUND.\n")
 allTle.close()
 Tle.close()
+
 
 
