@@ -1,24 +1,115 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/07 ÖÜÁù 
-23:32
+23:48
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating 0caf912..aec17a3
+Fast-forward
+ main.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
+ISS(ZARYA) 25544U
+SATNOGS OK.
+
+SO-50 27607U
+SATNOGS OK.
+
+AO-91(FOX-1B) 43017U
+SATNOGS OK.
+
+PO-101(DIWATA-2B) 43678U
+SATNOGS OK.
+
+RS-44 44909U
+SATNOGS OK.
+
+AO-27 22825U
+SATNOGS OK.
+
+XW-2B 40911U
+NOT FOUND.
+
+AO-7 07530U
+SATNOGS OK.
+
+CAS-4A 42761U
+NOT FOUND.
+
+CAS-4B 43937U
+NOT FOUND.
+
+CAS-3H(LilacSat-2) 40908U
+SATNOGS OK.
+
+FO-29 24278U
+SATNOGS OK.
+
+CAS-6 44881U
+SATNOGS OK.
+
+CSS(TianHe) 48274U
+SATNOGS OK.
+
+JO-97 43803U
+SATNOGS OK.
+
+NOAA-15 25338U
+SATNOGS OK.
+
+NOAA-18 28654U
+SATNOGS OK.
+
+NOAA-19 33591U
+SATNOGS OK.
+
+METEOR-M2 44387U
+SATNOGS OK.
+
+XW-3(HO-113) 50466U
+SATNOGS OK.
+
+CSS(MengTian) 54216U
+NOT FOUND.
+
+CAS-5A(FO-118) 54684U
+NOT FOUND.
+
+GreenCube 53106U
+SATNOGS OK.
+
+LEDSAT 49069U
+NOT FOUND.
+
+QO-100(Es'hail-2) 43700U
+SATNOGS OK.
+
+SONATE-2 59112U
+SATNOGS OK.
+
+AO-123(ASRTU-1) 61781U
+SATNOGS OK.
+
+SO-124(HADES-R) 62690U
+NOT FOUND.
+
+SO-125(HADES-ICM) 63492U
+SATNOGS OK.
+
+MO-122(MESAT-1) 60209U
+SATNOGS OK.
+
+TEVEL2-3 63219U
+SATNOGS OK.
+
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git add logs.txt 
 
 C:\Users\Administrator\Documents\AutoTLE>git commit -a -m "Auto upload"  
-[master 2cdf518] Auto upload
- 1 file changed, 1 insertion(+), 6 deletions(-)
-
-C:\Users\Administrator\Documents\AutoTLE>git push -u --force origin master 
-branch 'master' set up to track 'origin/master'.
