@@ -13,51 +13,13 @@ proxies={"http": "http://127.0.0.1:13000"}
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/dmc.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/weather.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/tle-new.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=noaa&FORMAT=tle', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
-try:
-    temp = requests.get('http://www.celestrak.com/NORAD/elements/geo.txt', headers=headers, proxies=proxies)
-    allTle.write(str(temp.text))
-except:
-    1
+
+for i in range(len(satelist)):
+    try:
+        temp = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies)
+        allTle.write(str(temp.text))
+    except:
+        1
 
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
