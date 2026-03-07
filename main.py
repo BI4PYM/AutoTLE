@@ -13,25 +13,42 @@ proxies={"http": "http://127.0.0.1:13000"}
 allTle = open('allTLE.txt', 'w')
 tem = open('localTLE.txt', 'r')
 allTle.write(str(tem.read()))
-
-temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/dmc.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/weather.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/tle-new.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=noaa&FORMAT=tle', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
-temp = requests.get('http://www.celestrak.com/NORAD/elements/geo.txt', headers=headers, proxies=proxies)
-allTle.write(str(temp.text))
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/amateur.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/cubesat.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/dmc.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/weather.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/tle-new.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://celestrak.org/NORAD/elements/gp.php?GROUP=noaa&FORMAT=tle', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/stations.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
+try:
+    temp = requests.get('http://www.celestrak.com/NORAD/elements/geo.txt', headers=headers, proxies=proxies)
+    allTle.write(str(temp.text))
+except:
 
 allTle = open('allTLE.txt', 'r')
 Tles = str(allTle.read())
@@ -58,6 +75,7 @@ for i in range(len(satelist)):
         Tle.write(getTles)
 allTle.close()
 Tle.close()
+
 
 
 
