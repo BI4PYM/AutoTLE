@@ -18,6 +18,8 @@ for i in range(len(satelist)):
     try:
         print(satelist[i][0],satelist[i][1],satelist[i][2])
         celestrak = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies).text
+        celestrak = celestrak.splitlines()
+        celestrak = [i for i in celestrak if i != '']
         temp = [temp for temp in celestrak if satelist[i][0] in temp]
         if str(temp) != "No GP data found":
             getTles = satelist[i][1] + '\n' + celestrak[celestrak.index(temp[0])] + '\n' + celestrak[celestrak.index(temp[0]) + 1] + '\n'
@@ -110,6 +112,7 @@ for i in range(len(satelist)):
 allTle.close()
 Tle.close()
 """
+
 
 
 
