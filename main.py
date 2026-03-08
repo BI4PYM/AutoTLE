@@ -35,7 +35,7 @@ for i in range(len(satelist)):
                 Tle.write(getTles)
                 print("LOCAL OK.\n")
             else:
-            print("NOT FOUND.\n")
+                print("NOT FOUND.\n")
     else:
         getTles = satelist[i][1] + '\n' + Tles[Tles.index(temp[0])] + '\n' + Tles[Tles.index(temp[0]) + 1] + '\n'
         Tle.write(getTles)
@@ -105,6 +105,7 @@ for i in range(len(satelist)):
 allTle.close()
 Tle.close()
 """
+
 
 
 
