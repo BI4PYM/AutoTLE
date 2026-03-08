@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/09 ÖÜÒ» 
-00:46
+02:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -15,7 +15,7 @@ C:\Users\Administrator\Documents\AutoTLE>python main.py
 CELESTRAK OK.
 
 27607 SO-50 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 43017 AO-91(FOX-1B) CATNR
 CELESTRAK OK.
