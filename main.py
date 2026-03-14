@@ -17,7 +17,7 @@ Tles = [i for i in Tles if i != '']
 for i in range(len(satelist)):
     try:
         print(satelist[i][0],satelist[i][1],satelist[i][2])
-        celestrak = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies).text
+        celestrak = requests.get("https://celestrak.org/NORAD/elements/gp.php?" + satelist[i][2] + "=" + satelist[i][0] + "&FORMAT=TLE", headers=headers, proxies=proxies, timeout=10.0).text
         celestrak = celestrak.splitlines()
         celestrak = [i for i in celestrak if i != '']
         temp = [temp for temp in celestrak if satelist[i][0] in temp]
@@ -28,7 +28,7 @@ for i in range(len(satelist)):
         else:
             raise ValueError("NOT FOUND")
     except:
-        satnogs = requests.get('https://db.satnogs.org/api/tle/?format=3le&norad_cat_id='+satelist[i][0], headers=headers).text
+        satnogs = requests.get('https://db.satnogs.org/api/tle/?format=3le&norad_cat_id='+satelist[i][0], headers=headers, timeout=10.0).text
         if len(satnogs) != 0:
             getTles = satelist[i][1] + '\n' + satnogs[satnogs.index(satelist[i][0])-2:]+'\n'
             Tle.write(getTles)
