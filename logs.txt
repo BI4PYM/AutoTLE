@@ -1,21 +1,21 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/15 ÖÜÈÕ 
-00:46
+02:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 5efdc11..504a9c6
+Updating 62ccfca..c10709f
 Fast-forward
- AutoTLE.txt | 75 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ AutoTLE.txt | 81 ++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 42 insertions(+), 39 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 27607 SO-50 CATNR
 CELESTRAK OK.
@@ -48,7 +48,7 @@ NOT FOUND.
 CELESTRAK OK.
 
 24278 FO-29 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 44881 CAS-6 CATNR
 CELESTRAK OK.
@@ -75,7 +75,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 54216 CSS(MengTian) CATNR
-NOT FOUND.
+CELESTRAK OK.
 
 54684 CAS-5A(FO-118) CATNR
 NOT FOUND.
@@ -105,7 +105,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 63219 TEVEL2-3 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
