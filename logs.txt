@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/18 ÖÜÈý 
-10:46
+12:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -33,7 +33,7 @@ CELESTRAK OK.
 NOT FOUND.
 
 07530 AO-7 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 42761 CAS-4A CATNR
 NOT FOUND.
