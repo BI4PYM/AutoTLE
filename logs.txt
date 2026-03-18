@@ -1,41 +1,16 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/19 ÖÜËÄ 
-00:46
+02:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-CELESTRAK OK.
-
-27607 SO-50 CATNR
-CELESTRAK OK.
-
-43017 AO-91(FOX-1B) CATNR
-CELESTRAK OK.
-
-43678 PO-101(DIWATA-2B) CATNR
-CELESTRAK OK.
-
-44909 RS-44 CATNR
-CELESTRAK OK.
-
-22825 AO-27 CATNR
-CELESTRAK OK.
-
-40911 XW-2B CATNR
-NOT FOUND.
-
-07530 AO-7 CATNR
-CELESTRAK OK.
-
-42761 CAS-4A CATNR
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
