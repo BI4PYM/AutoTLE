@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/21 ÖÜÁù 
-02:46
+04:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -30,12 +30,6 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 40911 XW-2B CATNR
-NOT FOUND.
-
-07530 AO-7 CATNR
-CELESTRAK OK.
-
-42761 CAS-4A CATNR
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
