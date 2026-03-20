@@ -1,30 +1,33 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/20 ÖÜÎå 
-16:46
+18:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating 0e3afa5..3465080
+Fast-forward
+ AutoTLE.txt | 52 ++++++++++++++++++++++++++--------------------------
+ 1 file changed, 26 insertions(+), 26 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 27607 SO-50 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43017 AO-91(FOX-1B) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43678 PO-101(DIWATA-2B) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 44909 RS-44 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 22825 AO-27 CATNR
 CELESTRAK OK.
@@ -42,7 +45,7 @@ NOT FOUND.
 NOT FOUND.
 
 40908 CAS-3H(LilacSat-2) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 24278 FO-29 CATNR
 CELESTRAK OK.
@@ -60,7 +63,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 28654 NOAA-18 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 33591 NOAA-19 CATNR
 CELESTRAK OK.
@@ -69,7 +72,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 50466 XW-3(HO-113) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 54216 CSS(MengTian) CATNR
 CELESTRAK OK.
@@ -84,25 +87,25 @@ SATNOGS OK.
 NOT FOUND.
 
 43700 QO-100(Es'hail-2) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 59112 SONATE-2 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 61781 AO-123(ASRTU-1) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 62690 SO-124(HADES-R) CATNR
 NOT FOUND.
 
 63492 SO-125(HADES-ICM) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 60209 MO-122(MESAT-1) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 63219 TEVEL2-3 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
