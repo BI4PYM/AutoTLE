@@ -1,18 +1,21 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/03/29 ÖÜÈÕ 
-20:46
+22:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating 35cb8ba..31c8a12
+Fast-forward
+ AutoTLE.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 27607 SO-50 CATNR
 CELESTRAK OK.
@@ -21,7 +24,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 43678 PO-101(DIWATA-2B) CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 44909 RS-44 CATNR
 CELESTRAK OK.
@@ -87,7 +90,7 @@ NOT FOUND.
 CELESTRAK OK.
 
 59112 SONATE-2 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 61781 AO-123(ASRTU-1) CATNR
 CELESTRAK OK.
