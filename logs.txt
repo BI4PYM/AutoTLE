@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/04/01 ÖÜÈý 
-04:46
+06:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -12,10 +12,10 @@ Already up to date.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 27607 SO-50 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43017 AO-91(FOX-1B) CATNR
 CELESTRAK OK.
@@ -42,13 +42,13 @@ NOT FOUND.
 NOT FOUND.
 
 40908 CAS-3H(LilacSat-2) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 24278 FO-29 CATNR
 CELESTRAK OK.
 
 44881 CAS-6 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 48274 CSS(TianHe) CATNR
 CELESTRAK OK.
