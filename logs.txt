@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/04/04 ÖÜÁù 
-02:46
+04:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -96,7 +96,7 @@ CELESTRAK OK.
 NOT FOUND.
 
 63492 SO-125(HADES-ICM) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 60209 MO-122(MESAT-1) CATNR
 CELESTRAK OK.
