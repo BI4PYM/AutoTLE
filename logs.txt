@@ -1,14 +1,17 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/04/06 ÖÜÒ» 
-12:46
+14:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating ab5550a..d1e1ab0
+Fast-forward
+ AutoTLE.txt | 72 +++++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 63 insertions(+), 9 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -33,6 +36,77 @@ SATNOGS OK.
 NOT FOUND.
 
 07530 AO-7 CATNR
+SATNOGS OK.
+
+42761 CAS-4A CATNR
+NOT FOUND.
+
+43937 CAS-4B CATNR
+NOT FOUND.
+
+40908 CAS-3H(LilacSat-2) CATNR
+SATNOGS OK.
+
+24278 FO-29 CATNR
+SATNOGS OK.
+
+44881 CAS-6 CATNR
+SATNOGS OK.
+
+48274 CSS(TianHe) CATNR
+SATNOGS OK.
+
+43803 JO-97 CATNR
+SATNOGS OK.
+
+25338 NOAA-15 CATNR
+SATNOGS OK.
+
+28654 NOAA-18 CATNR
+SATNOGS OK.
+
+33591 NOAA-19 CATNR
+SATNOGS OK.
+
+44387 METEOR-M2 CATNR
+SATNOGS OK.
+
+50466 XW-3(HO-113) CATNR
+SATNOGS OK.
+
+54216 CSS(MengTian) CATNR
+NOT FOUND.
+
+54684 CAS-5A(FO-118) CATNR
+NOT FOUND.
+
+53106 GreenCube CATNR
+SATNOGS OK.
+
+49069 LEDSAT CATNR
+NOT FOUND.
+
+43700 QO-100(Es'hail-2) CATNR
+SATNOGS OK.
+
+59112 SONATE-2 CATNR
+SATNOGS OK.
+
+61781 AO-123(ASRTU-1) CATNR
+SATNOGS OK.
+
+62690 SO-124(HADES-R) CATNR
+NOT FOUND.
+
+63492 SO-125(HADES-ICM) CATNR
+SATNOGS OK.
+
+60209 MO-122(MESAT-1) CATNR
+SATNOGS OK.
+
+63219 TEVEL2-3 CATNR
+SATNOGS OK.
+
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
