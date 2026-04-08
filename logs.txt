@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/04/09 ÖÜËÄ 
-02:46
+04:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -66,7 +66,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 44387 METEOR-M2 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 50466 XW-3(HO-113) CATNR
 CELESTRAK OK.
