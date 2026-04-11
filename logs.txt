@@ -1,17 +1,17 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/04/11 ÖÜÁù 
-20:46
+22:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating bc03630..f04950b
+Updating 8a04c25..ea2eb02
 Fast-forward
- AutoTLE.txt | 70 ++++++++++++++++++++++++++++++-------------------------------
- 1 file changed, 35 insertions(+), 35 deletions(-)
+ AutoTLE.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -21,7 +21,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 43017 AO-91(FOX-1B) CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 43678 PO-101(DIWATA-2B) CATNR
 CELESTRAK OK.
@@ -48,7 +48,7 @@ NOT FOUND.
 CELESTRAK OK.
 
 24278 FO-29 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 44881 CAS-6 CATNR
 CELESTRAK OK.
@@ -57,22 +57,22 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 43803 JO-97 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 25338 NOAA-15 CATNR
 CELESTRAK OK.
 
 28654 NOAA-18 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 33591 NOAA-19 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 44387 METEOR-M2 CATNR
 CELESTRAK OK.
 
 50466 XW-3(HO-113) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 54216 CSS(MengTian) CATNR
 CELESTRAK OK.
