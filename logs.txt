@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/05/31 ÖÜÈÕ 
-08:46
+10:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -87,7 +87,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 63238 TEVEL2-7 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 63215 TEVEL2-6 CATNR
 CELESTRAK OK.
