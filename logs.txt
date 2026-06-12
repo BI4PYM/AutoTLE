@@ -1,17 +1,17 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/06/12 ÖÜÎå 
-20:46
+22:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 2c98eb3..a53e01d
+Updating 5aa0528..718501c
 Fast-forward
- AutoTLE.txt | 100 ++++++++++++++++++++++++++++++------------------------------
- 1 file changed, 50 insertions(+), 50 deletions(-)
+ AutoTLE.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -84,7 +84,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 63237 TEVEL2-9 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 63239 TEVEL2-8 CATNR
 CELESTRAK OK.
