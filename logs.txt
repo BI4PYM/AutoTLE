@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/06/20 ÖÜÁù 
-08:46
+10:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -63,10 +63,10 @@ SATNOGS OK.
 NOT FOUND.
 
 43700 QO-100(Es'hail-2) CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 59112 SONATE-2 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 61781 AO-123(ASRTU-1) CATNR
 CELESTRAK OK.
