@@ -1,21 +1,24 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/06/22 ÖÜÒ» 
-20:46
+22:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Updating 2a7f19f..56ab780
+Fast-forward
+ AutoTLE.txt | 50 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 49 insertions(+), 1 deletion(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
 CELESTRAK OK.
 
 27607 SO-50 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43017 AO-91(FOX-1B) CATNR
 CELESTRAK OK.
@@ -48,12 +51,68 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 44387 METEOR-M2 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 50466 XW-3(HO-113) CATNR
 CELESTRAK OK.
 
 54684 CAS-5A(FO-118) CATNR
+NOT FOUND.
+
+53106 GreenCube CATNR
+SATNOGS OK.
+
+49069 LEDSAT CATNR
+NOT FOUND.
+
+43700 QO-100(Es'hail-2) CATNR
+CELESTRAK OK.
+
+59112 SONATE-2 CATNR
+CELESTRAK OK.
+
+61781 AO-123(ASRTU-1) CATNR
+CELESTRAK OK.
+
+63492 SO-125(HADES-ICM) CATNR
+NOT FOUND.
+
+60209 MO-122(MESAT-1) CATNR
+CELESTRAK OK.
+
+67291 QMR-KWT-2(RS95S) CATNR
+SATNOGS OK.
+
+63237 TEVEL2-9 CATNR
+CELESTRAK OK.
+
+63239 TEVEL2-8 CATNR
+CELESTRAK OK.
+
+63238 TEVEL2-7 CATNR
+CELESTRAK OK.
+
+63215 TEVEL2-6 CATNR
+CELESTRAK OK.
+
+63214 TEVEL2-5 CATNR
+CELESTRAK OK.
+
+63213 TEVEL2-4 CATNR
+CELESTRAK OK.
+
+63218 TEVEL2-3 CATNR
+CELESTRAK OK.
+
+63219 TEVEL2-2 CATNR
+CELESTRAK OK.
+
+63217 TEVEL2-1 CATNR
+CELESTRAK OK.
+
+69000 Gemini-Pollux CATNR
+CELESTRAK OK.
+
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
