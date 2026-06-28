@@ -1,15 +1,14 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/06/28 ÖÜÈÕ 
-20:46
+22:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating dd531e3..6f8f5d4
-Fast-forward
+Already up to date.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -31,7 +30,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 07530 AO-7 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 40908 CAS-3H(LilacSat-2) CATNR
 CELESTRAK OK.
