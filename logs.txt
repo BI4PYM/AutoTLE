@@ -1,17 +1,17 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2026/08/07 ÖÜÎå 
-22:46
+2026/08/08 ÖÜÁù 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 66b93e2..6f8ffc3
+Updating 92b6f13..50b9b34
 Fast-forward
- AutoTLE.txt | 85 +++++++++++++++++++++++++++++--------------------------------
- 1 file changed, 41 insertions(+), 44 deletions(-)
+ AutoTLE.txt | 81 +++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 39 insertions(+), 42 deletions(-)
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -48,7 +48,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 43803 JO-97 CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 44387 METEOR-M2 CATNR
 CELESTRAK OK.
@@ -78,7 +78,7 @@ CELESTRAK OK.
 NOT FOUND.
 
 60209 MO-122(MESAT-1) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 67291 QMR-KWT-2(RS95S) CATNR
 CELESTRAK OK.
@@ -90,7 +90,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 63238 TEVEL2-7 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 63215 TEVEL2-6 CATNR
 CELESTRAK OK.
