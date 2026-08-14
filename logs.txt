@@ -1,17 +1,16 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2026/08/14 ÖÜÎå 
-23:55
+2026/08/15 ÖÜÁù 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Updating 017186a..87a86b2
-Fast-forward
- satelist.json | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Auto-merging AutoTLE.txt
+CONFLICT (content): Merge conflict in AutoTLE.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -66,7 +65,7 @@ SATNOGS OK.
 NOT FOUND.
 
 43700 QO-100(Es'hail-2) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43823 GK-2A CATNR
 CELESTRAK OK.
