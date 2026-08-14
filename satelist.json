@@ -11,15 +11,16 @@
 ["44881", "CAS-6","CATNR"], 
 ["48274", "CSS(TianHe)","CATNR"], 
 ["43803", "JO-97","CATNR"], 
-["44387", "METEOR-M2","CATNR"], 
+["57166", "METEOR-M2-3","CATNR"],
+["59051", "METEOR-M2-4","CATNR"],
 ["50466", "XW-3(HO-113)","CATNR"], 
 ["54684", "CAS-5A(FO-118)","CATNR"], 
 ["53106", "GreenCube","CATNR"], 
 ["49069", "LEDSAT","CATNR"], 
 ["43700", "QO-100(Es'hail-2)","CATNR"], 
+["43823", "GK-2A","CATNR"], 
 ["59112", "SONATE-2","CATNR"], 
-["61781", "AO-123(ASRTU-1)","CATNR"], 
-["63492", "SO-125(HADES-ICM)","CATNR"], 
+["61781", "AO-123(ASRTU-1)","CATNR"],  
 ["60209", "MO-122(MESAT-1)","CATNR"],
 ["67291", "QMR-KWT-2(RS95S)","CATNR"],
 ["63237", "TEVEL2-9","CATNR"],
@@ -31,6 +32,7 @@
 ["63218", "TEVEL2-3","CATNR"],
 ["63219", "TEVEL2-2","CATNR"],
 ["63217", "TEVEL2-1","CATNR"],
-["69000", "Gemini-Pollux","CATNR"]
+["69000", "Gemini-Pollux","CATNR"],
+["68446", "Hades-SA","CATNR"],
 ]
 
