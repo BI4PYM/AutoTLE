@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/08/24 ÖÜÒ» 
-10:46
+12:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -66,7 +66,7 @@ NOT FOUND.
 CELESTRAK OK.
 
 43823 GK-2A CATNR
-CELESTRAK OK.
+NOT FOUND.
 
 59112 SONATE-2 CATNR
 CELESTRAK OK.
