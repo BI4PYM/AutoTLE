@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/08/31 ÖÜÒ» 
-16:46
+18:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -14,9 +14,6 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
-CELESTRAK OK.
-
-27607 SO-50 CATNR
 
 C:\Users\Administrator\Documents\AutoTLE>git add AutoTLE.txt 
 
