@@ -1,21 +1,23 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
 2026/09/01 ÖÜ¶þ 
-10:46
+12:46
 
 C:\Users\Administrator\Documents>C:
 
 C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE 
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
-Already up to date.
+Auto-merging AutoTLE.txt
+CONFLICT (content): Merge conflict in AutoTLE.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
 CELESTRAK OK.
 
 27607 SO-50 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 43017 AO-91(FOX-1B) CATNR
 CELESTRAK OK.
