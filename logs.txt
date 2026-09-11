@@ -1,7 +1,7 @@
 
 C:\Users\Administrator\Documents>date /t   && time /t 
-2026/09/11 ÖÜÎå 
-22:46
+2026/09/12 ÖÜÁù 
+00:46
 
 C:\Users\Administrator\Documents>C:
 
@@ -9,9 +9,8 @@ C:\Users\Administrator\Documents>cd C:\Users\Administrator\Documents\AutoTLE
 
 C:\Users\Administrator\Documents\AutoTLE>git pull origin master 
 Auto-merging AutoTLE.txt
-Merge made by the 'ort' strategy.
- AutoTLE.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+CONFLICT (content): Merge conflict in AutoTLE.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
 C:\Users\Administrator\Documents\AutoTLE>python main.py  
 25544 ISS(ZARYA) CATNR
@@ -21,7 +20,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 43017 AO-91(FOX-1B) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 43678 PO-101(DIWATA-2B) CATNR
 CELESTRAK OK.
@@ -33,7 +32,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 40908 CAS-3H(LilacSat-2) CATNR
-SATNOGS OK.
+CELESTRAK OK.
 
 24278 FO-29 CATNR
 CELESTRAK OK.
@@ -48,7 +47,7 @@ CELESTRAK OK.
 CELESTRAK OK.
 
 57166 METEOR-M2-3 CATNR
-CELESTRAK OK.
+SATNOGS OK.
 
 59051 METEOR-M2-4 CATNR
 CELESTRAK OK.
