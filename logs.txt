@@ -1,38 +1,38 @@
-AutoTLE run: 2026-09-14T21:58:36+08:00
+AutoTLE run: 2026-09-14T22:05:57+08:00
 Summary: lists=1 satellites=34 added=0 updated=0 stale=0 same=34 skipped=0 errors=0
 
 time	list	satellite_id	name	source	status	detail
-2026-09-14T21:58:37+08:00	AutoTLE.json	25544	ISS (ZARYA)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:39+08:00	AutoTLE.json	27607	SAUDISAT 1C (SO-50)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:41+08:00	AutoTLE.json	43017	RADFXSAT (FOX-1B)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:43+08:00	AutoTLE.json	43678	DIWATA-2B	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:47+08:00	AutoTLE.json	44909	RS-44 & BREEZE-KM R/B	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:50+08:00	AutoTLE.json	7530	OSCAR 7 (AO-7)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:52+08:00	AutoTLE.json	40908	LILACSAT-2	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:53+08:00	AutoTLE.json	24278	JAS-2 (FO-29)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:55+08:00	AutoTLE.json	44879	TIANQIN 1 (CAS-6)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:57+08:00	AutoTLE.json	48274	CSS (TIANHE)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:58+08:00	AutoTLE.json	43803	JY1SAT (JO-97)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:58:59+08:00	AutoTLE.json	57166	METEOR-M2 3	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:03+08:00	AutoTLE.json	59051	METEOR-M2 4	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:03+08:00	AutoTLE.json	50466	XW-3 (CAS-9)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:17+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
-2026-09-14T21:59:22+08:00	AutoTLE.json	43700	ES'HAIL 2	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:23+08:00	AutoTLE.json	43823	GEO-KOMPSAT-2A	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:30+08:00	AutoTLE.json	59112	SONATE-2	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:30+08:00	AutoTLE.json	61781	ASRTU-1 (AO-123)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:33+08:00	AutoTLE.json	60209	MESAT1	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:37+08:00	AutoTLE.json	67291	QMR-KWT-2 (RS95S)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:40+08:00	AutoTLE.json	63237	TEVEL2-9	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:41+08:00	AutoTLE.json	63239	TEVEL2-8	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:42+08:00	AutoTLE.json	63238	TEVEL2-7	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:46+08:00	AutoTLE.json	63215	TEVEL2-6	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:48+08:00	AutoTLE.json	63214	TEVEL2-5	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:50+08:00	AutoTLE.json	63213	TEVEL2-4	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:51+08:00	AutoTLE.json	63218	TEVEL2-3	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:55+08:00	AutoTLE.json	63219	TEVEL2-2	celestrak:JSON	星历源与缓存一致	
-2026-09-14T21:59:57+08:00	AutoTLE.json	63217	TEVEL2-1	celestrak:JSON	星历源与缓存一致	
-2026-09-14T22:00:08+08:00	AutoTLE.json	69000	GEMINI-POLLUX	celestrak:JSON	星历源与缓存一致	
-2026-09-14T22:00:11+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	celestrak:JSON	星历源与缓存一致	
-2026-09-14T22:00:22+08:00	AutoTLE.json	100469	BY70-4	celestrak:JSON	星历源与缓存一致	
-2026-09-14T22:00:27+08:00	AutoTLE.json	100465	JAMX01 (JING'AN DREAM STAR)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:01+08:00	AutoTLE.json	25544	ISS (ZARYA)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:06+08:00	AutoTLE.json	27607	SAUDISAT 1C (SO-50)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:07+08:00	AutoTLE.json	43017	RADFXSAT (FOX-1B)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:09+08:00	AutoTLE.json	43678	DIWATA-2B	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:12+08:00	AutoTLE.json	44909	RS-44 & BREEZE-KM R/B	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:12+08:00	AutoTLE.json	7530	OSCAR 7 (AO-7)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:14+08:00	AutoTLE.json	40908	LILACSAT-2	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:15+08:00	AutoTLE.json	24278	JAS-2 (FO-29)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:16+08:00	AutoTLE.json	44879	TIANQIN 1 (CAS-6)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:17+08:00	AutoTLE.json	48274	CSS (TIANHE)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:20+08:00	AutoTLE.json	43803	JY1SAT (JO-97)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:20+08:00	AutoTLE.json	57166	METEOR-M2 3	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:22+08:00	AutoTLE.json	59051	METEOR-M2 4	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:23+08:00	AutoTLE.json	50466	XW-3 (CAS-9)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:43+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
+2026-09-14T22:06:44+08:00	AutoTLE.json	43700	ES'HAIL 2	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:46+08:00	AutoTLE.json	43823	GEO-KOMPSAT-2A	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:47+08:00	AutoTLE.json	59112	SONATE-2	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:47+08:00	AutoTLE.json	61781	ASRTU-1 (AO-123)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:06:49+08:00	AutoTLE.json	60209	MESAT1	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:23+08:00	AutoTLE.json	67291	QMR-KWT-2 (RS95S)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:23+08:00	AutoTLE.json	63237	TEVEL2-9	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:24+08:00	AutoTLE.json	63239	TEVEL2-8	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:32+08:00	AutoTLE.json	63238	TEVEL2-7	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:37+08:00	AutoTLE.json	63215	TEVEL2-6	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:39+08:00	AutoTLE.json	63214	TEVEL2-5	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:41+08:00	AutoTLE.json	63213	TEVEL2-4	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:43+08:00	AutoTLE.json	63218	TEVEL2-3	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:44+08:00	AutoTLE.json	63219	TEVEL2-2	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:48+08:00	AutoTLE.json	63217	TEVEL2-1	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:49+08:00	AutoTLE.json	69000	GEMINI-POLLUX	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:52+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:53+08:00	AutoTLE.json	100469	BY70-4	celestrak:JSON	星历源与缓存一致	
+2026-09-14T22:07:55+08:00	AutoTLE.json	100465	JAMX01 (JING'AN DREAM STAR)	celestrak:JSON	星历源与缓存一致	
