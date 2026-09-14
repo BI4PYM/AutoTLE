@@ -47,6 +47,7 @@ def _options_from_args(args: argparse.Namespace) -> PipelineOptions:
     options.offline = args.offline or options.offline
     options.dry_run = args.dry_run
     options.limit = args.limit
+    options.quiet = args.quiet or options.quiet
     return options
 
 
@@ -79,8 +80,6 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[{report.config.source_name}] {len(report.keys)} satellites")
             for output in report.outputs:
                 print(f"  wrote {output}")
-            for error in report.errors:
-                print(f"  warning: {error}")
     return 0
 
 

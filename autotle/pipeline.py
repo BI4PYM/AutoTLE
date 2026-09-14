@@ -9,7 +9,7 @@ from typing import Any, Iterable, Mapping
 
 from .config import SatelliteListConfig, SatelliteSpec, discover_satellite_lists, load_satellite_list
 from .omm import omm_identity, parse_int, render_csv_omms, render_json_omms, render_kvn_omms, render_xml_omms
-from .sources import fetch_for_spec
+from .sources import FetchResult, fetch_for_spec
 from .storage import catalog_numbers, ensure_aliases, load_state, merge_fetched, save_state, state_index
 from .tle import render_tle
 
@@ -28,6 +28,7 @@ class PipelineOptions:
     offline: bool = False
     dry_run: bool = False
     limit: int | None = None
+    quiet: bool = True
 
     @classmethod
     def from_root(cls, project_root: str | Path) -> "PipelineOptions":
@@ -44,6 +45,7 @@ class PipelineOptions:
             retries=int(os.environ.get("AUTOTLE_RETRIES", "2")),
             proxy=os.environ.get("AUTOTLE_PROXY") or None,
             offline=os.environ.get("AUTOTLE_OFFLINE", "").lower() in {"1", "true", "yes"},
+            quiet=os.environ.get("AUTOTLE_QUIET", "").lower() in {"1", "true", "yes"},
         )
 
 
@@ -191,12 +193,12 @@ def _status_text(status: str) -> str:
     }.get(status, status)
 
 
-def _log_entry(list_name: str, spec: SatelliteSpec, record: Mapping[str, Any] | None, source: str, status: str, detail: str = "", key: str | None = None) -> dict[str, str]:
+def _log_entry(list_name: str, spec: SatelliteSpec, record: Mapping[str, Any] | None, source: str, status: str, detail: str = "", key: str | None = None, time_value: str | None = None) -> dict[str, str]:
     norad = record.get("NORAD_CAT_ID") if record else None
     object_id = record.get("OBJECT_ID") if record else None
     name = record.get("OBJECT_NAME") if record else None
     return {
-        "time": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "time": time_value or datetime.now().astimezone().isoformat(timespec="seconds"),
         "key": key or (omm_identity(record) if record else "") or "",
         "list": list_name,
         "id": str(norad or object_id or spec.id),
@@ -207,7 +209,124 @@ def _log_entry(list_name: str, spec: SatelliteSpec, record: Mapping[str, Any] | 
     }
 
 
-def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Path) -> ListRunReport:
+@dataclass
+class CachedSatellite:
+    raw_status: str
+    display_status: str
+    source: str
+    source_format: str
+    source_url: str
+    log_time: str = ""
+
+
+@dataclass
+class RunFetchCache:
+    request_results: dict[str, FetchResult] = field(default_factory=dict)
+    records: dict[str, CachedSatellite] = field(default_factory=dict)
+
+
+def _request_cache_key(spec: SatelliteSpec, sources: Iterable[str]) -> str:
+    return "|".join(sources) + "::" + spec.query.upper() + "::" + spec.id
+
+
+def _cached_result_from_keys(
+    state: Mapping[str, Any],
+    keys: list[str],
+    cache: RunFetchCache,
+) -> tuple[FetchResult, dict[str, CachedSatellite]] | None:
+    index = state_index(state)
+    records: list[dict[str, Any]] = []
+    metadata: list[CachedSatellite] = []
+    selected: list[str] = []
+    for key in keys:
+        cached = cache.records.get(key)
+        position = index.get(key)
+        if cached is None or position is None:
+            continue
+        records.append(state["ephemeris"][position])
+        metadata.append(cached)
+        selected.append(key)
+    if not records:
+        return None
+    identities = {(item.source, item.source_format, item.source_url) for item in metadata}
+    if len(identities) == 1:
+        source, source_format, source_url = next(iter(identities))
+    else:
+        source, source_format, source_url = "run-cache", "", ""
+    result = FetchResult(records, source or "run-cache", source_url, source_format)
+    return result, {key: cache.records[key] for key in selected}
+
+
+def _find_cached_result(
+    state: Mapping[str, Any],
+    spec: SatelliteSpec,
+    cache: RunFetchCache,
+) -> tuple[FetchResult, dict[str, CachedSatellite]] | None:
+    if not cache.records:
+        return None
+    index = state_index(state)
+    if spec.query == "CATNR" and spec.id.isdigit():
+        key = f"norad:{int(spec.id)}"
+        return _cached_result_from_keys(state, [key], cache) if key in cache.records else None
+    if spec.query == "INTDES":
+        wanted = re.sub(r"[^A-Z0-9]", "", spec.id.upper())
+        keys = []
+        for key in cache.records:
+            position = index.get(key)
+            if position is None:
+                continue
+            record = state["ephemeris"][position]
+            object_id = re.sub(r"[^A-Z0-9]", "", str(record.get("OBJECT_ID") or "").upper())
+            if wanted and object_id.startswith(wanted):
+                keys.append(key)
+        return _cached_result_from_keys(state, keys, cache)
+    if spec.query == "NAME":
+        wanted = re.sub(r"\s+", " ", spec.id).strip().upper()
+        keys = []
+        for key in cache.records:
+            position = index.get(key)
+            if position is None:
+                continue
+            record = state["ephemeris"][position]
+            actual = re.sub(r"\s+", " ", str(record.get("OBJECT_NAME") or "")).strip().upper()
+            if wanted and (wanted == actual or wanted in actual or actual in wanted):
+                keys.append(key)
+        return _cached_result_from_keys(state, keys, cache)
+    if spec.query in {"SATID", "SAT_ID"}:
+        keys = []
+        for key in cache.records:
+            cached = cache.records[key]
+            if cached.source_url and spec.id in cached.source_url:
+                keys.append(key)
+        return _cached_result_from_keys(state, keys, cache)
+    return None
+
+
+def _bump_report_status(report: ListRunReport, raw_status: str) -> None:
+    if raw_status == "added":
+        report.added += 1
+    elif raw_status == "updated":
+        report.updated += 1
+    elif raw_status == "same":
+        report.same += 1
+    elif raw_status == "stale":
+        report.stale += 1
+    elif raw_status == "skipped":
+        report.skipped += 1
+
+
+def _cached_statuses_for_result(
+    state: Mapping[str, Any],
+    result: FetchResult,
+    cache: RunFetchCache,
+) -> dict[str, CachedSatellite] | None:
+    keys = [omm_identity(record) or "" for record in result.records]
+    if not keys or any(not key or key not in cache.records for key in keys):
+        return None
+    return {key: cache.records[key] for key in keys}
+
+
+def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Path, cache: RunFetchCache) -> ListRunReport:
     config = load_satellite_list(list_path)
     if options.limit is not None:
         config.satellites = config.satellites[:options.limit]
@@ -216,22 +335,61 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
         options.project_root / "localTLE.txt",
         options.project_root / "localJSON.json",
     ]
-    for spec in config.satellites:
+    total = len(config.satellites)
+    for spec_index, spec in enumerate(config.satellites, 1):
+        log_start = len(report.log_entries)
         sources = spec.sources or options.sources
         if options.offline:
             sources = ("localtle", "localjson")
-        result = fetch_for_spec(
-            spec,
-            sources,
-            options.celestrak_formats,
-            options.timeout,
-            options.retries,
-            options.proxy,
-            local_paths,
-        )
+        cache_key = _request_cache_key(spec, sources)
+        cached_statuses: dict[str, CachedSatellite] | None = None
+        result: FetchResult | None = None
+
+        cached_probe = _find_cached_result(state, spec, cache)
+        if cached_probe is not None:
+            result, cached_statuses = cached_probe
+        else:
+            result = cache.request_results.get(cache_key)
+            if result is None:
+                if not options.quiet:
+                    label = spec.name or spec.id
+                    print(f"[{config.source_name} {spec_index}/{total}] {spec.id} {label} | querying...", flush=True)
+                result = fetch_for_spec(
+                    spec,
+                    sources,
+                    options.celestrak_formats,
+                    options.timeout,
+                    options.retries,
+                    options.proxy,
+                    local_paths,
+                )
+                cache.request_results[cache_key] = result
+            else:
+                cached_statuses = _cached_statuses_for_result(state, result, cache)
+
         source_label = result.source + (f":{result.format}" if result.format else "")
         hint = _hint_for_spec(spec)
-        if result.records:
+        if result.records and cached_statuses is not None:
+            index = state_index(state)
+            for key, cached in cached_statuses.items():
+                position = index.get(key)
+                if position is None:
+                    continue
+                record = state["ephemeris"][position]
+                report.log_entries.append(
+                    _log_entry(
+                        config.source_name,
+                        spec,
+                        record,
+                        cached.source + (f":{cached.source_format}" if cached.source_format else ""),
+                        cached.display_status,
+                        key=key,
+                        time_value=cached.log_time,
+                    )
+                )
+                _append_key(report.keys, key)
+                _bump_report_status(report, cached.raw_status)
+        elif result.records:
             summary = merge_fetched(
                 state,
                 result.records,
@@ -243,8 +401,22 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
                 identity_hint=hint,
             )
             for detail in summary["details"]:
-                report.log_entries.append(
-                    _log_entry(config.source_name, spec, detail["record"], source_label, _status_text(detail["status"]), key=detail["key"])
+                entry = _log_entry(
+                    config.source_name,
+                    spec,
+                    detail["record"],
+                    source_label,
+                    _status_text(detail["status"]),
+                    key=detail["key"],
+                )
+                report.log_entries.append(entry)
+                cache.records[detail["key"]] = CachedSatellite(
+                    raw_status=detail["status"],
+                    display_status=_status_text(detail["status"]),
+                    source=result.source,
+                    source_format=result.format,
+                    source_url=result.url,
+                    log_time=entry["time"],
                 )
             for key in summary["keys"]:
                 _append_key(report.keys, key)
@@ -265,9 +437,16 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
         cached = _find_existing_key(state, spec)
         if cached:
             _append_key(report.keys, cached)
+        if not options.quiet:
+            for entry in report.log_entries[log_start:]:
+                detail = f" | {entry.get('detail')}" if entry.get("detail") else ""
+                print(
+                    f"[{config.source_name} {spec_index}/{total}] "
+                    f"{entry.get('id', '')} {entry.get('name', '')} | "
+                    f"{entry.get('source', '-')} | {entry.get('status', '')}{detail}",
+                    flush=True,
+                )
     return report
-
-
 
 _STATUS_PRIORITY = {
     "成功新增": 6,
@@ -323,6 +502,7 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
 
     def clean(value: Any) -> str:
         return str(value or "").replace("|", "\\|").replace("\n", " ").strip()
+
     lines = [
         "# AutoTLE Satellite Cache Status",
         "",
@@ -350,6 +530,7 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
             clean(status.get("current_status") or "未处理"),
         ]) + " |")
     _atomic_write(path, "\n".join(lines) + "\n")
+
 
 def _summary_from_reports(state: Mapping[str, Any] | None, reports: list[ListRunReport]) -> dict[str, int]:
     return {
@@ -521,6 +702,7 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
     state: dict[str, Any] | None = None
     reports: list[ListRunReport] = []
     log_entries: list[dict[str, str]] = []
+    fetch_cache = RunFetchCache()
     top_error: str | None = None
     previous_statuses: dict[str, str] = {}
     status_updated = False
@@ -536,7 +718,7 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
         for list_path in list_paths:
             path = Path(list_path)
             try:
-                report = _process_list(options, state, path)
+                report = _process_list(options, state, path, fetch_cache)
             except Exception as exc:
                 log_entries.append({
                     "time": datetime.now().astimezone().isoformat(timespec="seconds"),

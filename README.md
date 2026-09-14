@@ -1,4 +1,4 @@
-# AutoTLE V2
+# AutoTLE
 
 使用Vibe Coding
 
@@ -66,6 +66,8 @@
 
 例如 `AutoTLE.json` 会生成 `./AutoTLE.txt`，不会再由其他列表额外写同名旧文件。
 
+同一次运行中，同一颗卫星只会抓取一次。后续列表会复用本次运行已经获取到的记录，不再重复访问 CelesTrak、SatNOGS 或本地文件源。
+
 ## 本地星历源
 
 - `./localTLE.txt`：本地 TLE/3LE/2LE 文本。
@@ -74,6 +76,8 @@
 - 完整来源顺序：`celestrak > satnogs > localtle > localjson`。
 
 ## 日志与状态
+
+默认运行时，控制台会按卫星逐条打印查询和结果；使用 `--quiet` 时只打印最终汇总。
 
 每次执行 `python main.py` 都会覆盖写入：
 
@@ -128,12 +132,6 @@ python main.py --delete-id 25544 --delete-id INTDES:2020-025
 
 - Python 3.10 或更高版本。
 - 无第三方运行库，不需要安装 `requests`。
-
-仍可按标准方式检查安装：
-
-```bash
-pip install -r requirements.txt
-```
 
 ## 运行
 
