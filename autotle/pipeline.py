@@ -66,7 +66,8 @@ class ListRunReport:
 def _atomic_write(path: Path, text: str, encoding: str = "utf-8", errors: str = "strict") -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
-    temporary.write_text(text, encoding=encoding, errors=errors, newline="\n")
+    with temporary.open("w", encoding=encoding, errors=errors, newline="\n") as handle:
+        handle.write(text)
     os.replace(temporary, path)
 
 

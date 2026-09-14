@@ -371,6 +371,22 @@ def _append_xml_group(parent: ET.Element, tag: str, keys: list[str], record: Map
         child.text = _format_scalar(value)
 
 
+def _indent_xml(element: ET.Element, space: str = "  ", level: int = 0) -> None:
+    if hasattr(ET, "indent"):
+        ET.indent(element, space=space)
+        return
+    indentation = "\n" + level * space
+    if len(element):
+        if not element.text or not element.text.strip():
+            element.text = indentation + space
+        for child in element:
+            _indent_xml(child, space, level + 1)
+        if not child.tail or not child.tail.strip():
+            child.tail = indentation
+    if level and (not element.tail or not element.tail.strip()):
+        element.tail = indentation
+
+
 def render_xml_omms(records: Iterable[Mapping[str, Any]]) -> str:
     root = ET.Element("ndm")
     body = ET.SubElement(root, "body")
@@ -393,5 +409,5 @@ def render_xml_omms(records: Iterable[Mapping[str, Any]]) -> str:
                 child.text = _format_scalar(public[key])
         _append_xml_group(segment, "meanElements", mean_keys, public)
         _append_xml_group(segment, "tleParameters", tle_keys, public)
-    ET.indent(root, space="  ")
+    _indent_xml(root, space="  ")
     return ET.tostring(root, encoding="unicode", xml_declaration=True) + "\n"
