@@ -1,4 +1,6 @@
-# AutoTLE
+# AutoTLE V2
+
+使用Vibe Coding
 
 自动化更新业余卫星星历，兼容传统 TLE，并支持 TLE 编号耗尽后的 OMM 多格式输出。
 
