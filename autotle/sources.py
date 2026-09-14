@@ -13,8 +13,8 @@ from .config import SatelliteSpec
 from .omm import OMMParseError, omm_epoch, omm_identity, parse_omm_text
 from .tle import parse_tle_set, parse_tle_text
 
-
-USER_AGENT = "AutoTLE/2.0 (+https://github.com/BI4PYM/AutoTLE)"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
+#USER_AGENT = "AutoTLE/2.0 (+https://github.com/BI4PYM/AutoTLE)"
 CELESTRAK_ENDPOINT = "https://celestrak.org/NORAD/elements/gp.php"
 SATNOGS_ENDPOINT = "https://db.satnogs.org/api/tle/"
 
