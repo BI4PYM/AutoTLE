@@ -157,6 +157,37 @@ python main.py --limit 3
 python main.py --proxy http://PROXY_HOST:PROXY_PORT --source celestrak --source satnogs --source localtle --source localjson
 ```
 
+## 命令行参数
+
+| 参数 | 默认值 | 可重复 | 说明 |
+|---|---|---|---|
+| `--root PATH` | 当前目录 | 否 | 项目根目录，用于定位 `satellitelists/`、`satellites.pkl`、`satellites/` 等文件。 |
+| `--list PATH` | 自动发现 | 是 | 指定卫星列表 JSON。可多次传入；未指定时读取 `satellitelists/*.json`，目录为空时回退根目录 `satelist.json`。 |
+| `--state PATH` | `ROOT/satellites.pkl` | 否 | 指定 pickle 缓存文件。 |
+| `--output-dir PATH` | `ROOT/satellites` | 否 | 指定各卫星列表输出目录。 |
+| `--source NAME` | `celestrak,satnogs,localtle,localjson` | 是 | 设置星历源优先级。可选 `celestrak`、`satnogs`、`localtle`、`localjson`、`local`。`local` 为旧兼容项，表示同时使用两个根目录本地文件。 |
+| `--celestrak-format FORMAT` | `JSON,KVN,CSV,XML,TLE` | 是 | 设置 CelesTrak 格式尝试顺序，默认优先 OMM JSON。 |
+| `--timeout SECONDS` | `20` | 否 | 单次 HTTP 请求超时时间。 |
+| `--retries N` | `2` | 否 | HTTP 请求重试次数。 |
+| `--proxy URL` | 无 | 否 | 可选的 HTTP/HTTPS 代理，仅设置时才启用。 |
+| `--offline` | 关闭 | 否 | 只使用根目录 `localTLE.txt` 和 `localJSON.json`；均无数据时使用已有 pickle 缓存。 |
+| `--dry-run` | 关闭 | 否 | 执行获取和合并，但不写 `satellites.pkl`、`satellites/` 输出和根目录 TLE；`logs.txt` 与 `satellites_state.md` 仍会更新。 |
+| `--delete-id ID` | 无 | 是 | 删除 pickle 中匹配的缓存记录。支持 NORAD 编号、TLE 编号/别名、`TLE:70000`、`INTDES:2020-025`。 |
+| `--limit N` | 不限制 | 否 | 每个卫星列表只处理前 N 条记录，适合测试。 |
+| `--quiet` | 关闭 | 否 | 不打印逐颗卫星进度，只输出最终汇总。 |
+| `--help` | - | 否 | 显示完整参数帮助。 |
+
+示例：
+
+```bash
+python main.py --help
+python main.py --limit 3
+python main.py --list satellitelists/amateur.json --quiet
+python main.py --source celestrak --source satnogs --source localtle --source localjson
+python main.py --delete-id 25544
+python main.py --delete-id INTDES:2020-025
+```
+
 环境变量：
 
 - `AUTOTLE_PROXY`
@@ -164,6 +195,8 @@ python main.py --proxy http://PROXY_HOST:PROXY_PORT --source celestrak --source 
 - `AUTOTLE_CELESTRAK_FORMATS`，例如 `JSON,KVN,CSV,XML,TLE`
 - `AUTOTLE_TIMEOUT`
 - `AUTOTLE_RETRIES`
+- `AUTOTLE_OFFLINE`
+- `AUTOTLE_QUIET`
 - `AUTOTLE_STATE`
 - `AUTOTLE_OUTPUT_DIR`
 
