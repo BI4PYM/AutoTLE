@@ -10,7 +10,7 @@
 
 AutoTLE五周年，AutoTLE正式更新为AutoTLE V2
 
-添加Norad ID>10000卫星的支持,支持Celestrak新接口,映射到70000~89999,兼容Orbitron
+添加Norad ID>100000卫星的支持,支持Celestrak新接口,映射到70000~89999,兼容Orbitron
 
 添加OMM JSON到TLE格式转换,支持多卫星列表输出
 
