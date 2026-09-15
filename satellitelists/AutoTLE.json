@@ -168,6 +168,16 @@
       "query": "CATNR"
     },
 	{
+      "id": "38771",
+      "name": "METOP-B",
+      "query": "CATNR"
+    },
+	{
+      "id": "43689",
+      "name": "METOP-C",
+      "query": "CATNR"
+    },
+	{
       "id": "2026-195E",
       "name": "BY-04",
       "query": "INTDES"
