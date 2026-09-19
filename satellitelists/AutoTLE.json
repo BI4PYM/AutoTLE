@@ -178,6 +178,16 @@
       "query": "CATNR"
     },
 	{
+      "id": "43491",
+      "name": "FENGYUN-2H",
+      "query": "CATNR"
+    },
+	{
+      "id": "40367",
+      "name": "FENGYUN-2G",
+      "query": "CATNR"
+    },
+	{
       "id": "2026-195E",
       "name": "BY-04",
       "query": "INTDES"
