@@ -1,42 +1,42 @@
-AutoTLE run: 2026-09-30T00:34:11+08:00
-Summary: lists=1 satellites=38 added=0 updated=0 stale=0 same=33 skipped=0 errors=5
+AutoTLE run: 2026-09-30T02:34:10+08:00
+Summary: lists=1 satellites=38 added=0 updated=0 stale=0 same=32 skipped=0 errors=6
 
 time	list	satellite_id	name	source	status	detail
-2026-09-30T00:37:18+08:00	AutoTLE.json	25544	ISS	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:40:31+08:00	AutoTLE.json	27607	SAUDISAT 1C	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:43:48+08:00	AutoTLE.json	43017	AO-91	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:46:54+08:00	AutoTLE.json	43678	DIWATA 2B	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:50:01+08:00	AutoTLE.json	44909	BREEZE-KM R/B	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:53:07+08:00	AutoTLE.json	7530	OSCAR-7	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:56:11+08:00	AutoTLE.json	40908	LILACSAT-2	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T00:59:15+08:00	AutoTLE.json	24278	JAS-2	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:02:36+08:00	AutoTLE.json	44879	OBJECT A	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:05:58+08:00	AutoTLE.json	48274	CSS (TIANHE-1)	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:09:06+08:00	AutoTLE.json	43803	JY1SAT	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:12:11+08:00	AutoTLE.json	57166	METEOR M2-3	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:15:16+08:00	AutoTLE.json	59051	METEOR M2-4	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:18:21+08:00	AutoTLE.json	50466	XW-3 (CAS 9)	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:21:26+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:24:32+08:00	AutoTLE.json	43700	ES'HAIL 2	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:27:40+08:00	AutoTLE.json	43823	GK-2A	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-09-30T01:30:45+08:00	AutoTLE.json	59112	SONATE-2	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:33:49+08:00	AutoTLE.json	61781	OBJECT AY	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:36:55+08:00	AutoTLE.json	60209	OBJECT G	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:40:01+08:00	AutoTLE.json	67291	OBJECT AV	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:43:06+08:00	AutoTLE.json	63237	OBJECT AD	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:46:12+08:00	AutoTLE.json	63239	OBJECT AF	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:49:17+08:00	AutoTLE.json	63238	OBJECT AE	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:52:23+08:00	AutoTLE.json	63215	OBJECT F	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:53:41+08:00	AutoTLE.json	63214	OBJECT E	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:54:15+08:00	AutoTLE.json	63213	OBJECT D	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T01:57:11+08:00	AutoTLE.json	63218	OBJECT J	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:00:15+08:00	AutoTLE.json	63219	OBJECT K	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:03:19+08:00	AutoTLE.json	63217	OBJECT H	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:06:26+08:00	AutoTLE.json	69000	Gemini-Pollux	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-09-30T02:09:29+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:12:35+08:00	AutoTLE.json	38771	METOP-B	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:15:48+08:00	AutoTLE.json	43689	METOP-C	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:18:53+08:00	AutoTLE.json	43491	FENGYUN 2H	satnogs:3le-json	星历源与缓存一致	
-2026-09-30T02:21:59+08:00	AutoTLE.json	40367	FENGYUN-2G	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-09-30T02:25:01+08:00	AutoTLE.json	2026-195E	BY-04	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-09-30T02:28:04+08:00	AutoTLE.json	2026-195A	JAMX01	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T02:37:18+08:00	AutoTLE.json	25544	ISS	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:40:23+08:00	AutoTLE.json	27607	SAUDISAT 1C	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:43:27+08:00	AutoTLE.json	43017	AO-91	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:46:32+08:00	AutoTLE.json	43678	DIWATA 2B	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:49:37+08:00	AutoTLE.json	44909	BREEZE-KM R/B	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:52:41+08:00	AutoTLE.json	7530	OSCAR-7	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:55:46+08:00	AutoTLE.json	40908	LILACSAT-2	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T02:58:51+08:00	AutoTLE.json	24278	JAS-2	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:01:55+08:00	AutoTLE.json	44879	OBJECT A	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:04:59+08:00	AutoTLE.json	48274	CSS (TIANHE-1)	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:08:04+08:00	AutoTLE.json	43803	JY1SAT	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:11:08+08:00	AutoTLE.json	57166	METEOR M2-3	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:14:12+08:00	AutoTLE.json	59051	METEOR M2-4	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:17:16+08:00	AutoTLE.json	50466	XW-3 (CAS 9)	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:20:21+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:23:25+08:00	AutoTLE.json	43700	ES'HAIL 2	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:26:30+08:00	AutoTLE.json	43823	GK-2A	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T03:29:33+08:00	AutoTLE.json	59112	SONATE-2	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:32:38+08:00	AutoTLE.json	61781	OBJECT AY	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:35:42+08:00	AutoTLE.json	60209	OBJECT G	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:38:46+08:00	AutoTLE.json	67291	OBJECT AV	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:41:49+08:00	AutoTLE.json	63237	OBJECT AD	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:44:53+08:00	AutoTLE.json	63239	OBJECT AF	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:47:58+08:00	AutoTLE.json	63238	OBJECT AE	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:51:03+08:00	AutoTLE.json	63215	OBJECT F	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:54:07+08:00	AutoTLE.json	63214	OBJECT E	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T03:57:27+08:00	AutoTLE.json	63213	TEVEL2-4	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; 3le: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T04:00:32+08:00	AutoTLE.json	63218	OBJECT J	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:03:36+08:00	AutoTLE.json	63219	OBJECT K	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:06:43+08:00	AutoTLE.json	63217	OBJECT H	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:09:49+08:00	AutoTLE.json	69000	Gemini-Pollux	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T04:12:53+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:15:58+08:00	AutoTLE.json	38771	METOP-B	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:19:02+08:00	AutoTLE.json	43689	METOP-C	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:22:07+08:00	AutoTLE.json	43491	FENGYUN 2H	satnogs:3le-json	星历源与缓存一致	
+2026-09-30T04:25:12+08:00	AutoTLE.json	40367	FENGYUN-2G	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T04:28:15+08:00	AutoTLE.json	2026-195E	BY-04	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-09-30T04:31:18+08:00	AutoTLE.json	2026-195A	JAMX01	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
