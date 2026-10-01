@@ -1,6 +1,6 @@
 # AutoTLE Satellite Cache Status
 
-- generated: 2026-10-01T00:34:10+08:00
+- generated: 2026-10-01T06:34:10+08:00
 - order: satellites.pkl ephemeris insertion order
 
 | 卫星编号 | 卫星名称 | 星历来源 | 更新时间 | 定轨时间 (EPOCH) | 上一次更新状态 | 这一次更新状态 |
