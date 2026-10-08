@@ -80,7 +80,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[{report.config.source_name}] {len(report.keys)} satellites")
             for output in report.outputs:
                 print(f"  wrote {output}")
-    return 0
+    return 1 if summary.get("list_errors") else 0
 
 
 if __name__ == "__main__":

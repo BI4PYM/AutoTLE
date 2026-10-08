@@ -76,6 +76,7 @@ def load_state(path: str | Path) -> dict[str, Any]:
         seen.add(key)
         records.append(record)
     state["ephemeris"] = records
+    _prune_orphan_meta(state)
     ensure_aliases(state)
     ensure_timestamps(state)
     return state
@@ -102,6 +103,16 @@ def save_state(path: str | Path, state: dict[str, Any]) -> None:
             os.unlink(handle.name)
 
 
+def _prune_orphan_meta(state: dict[str, Any]) -> None:
+    """Drop status/sources/timestamps entries whose record is no longer cached."""
+    live = set(state_index(state))
+    for field in ("sources", "status", "timestamps"):
+        target = state.get(field)
+        if isinstance(target, dict):
+            for key in [key for key in target if key not in live]:
+                target.pop(key, None)
+
+
 def state_index(state: Mapping[str, Any]) -> dict[str, int]:
     result: dict[str, int] = {}
     for index, record in enumerate(state.get("ephemeris", [])):
@@ -111,11 +122,9 @@ def state_index(state: Mapping[str, Any]) -> dict[str, int]:
     return result
 
 def needs_alias(norad_cat_id: int | None) -> bool:
-    if norad_cat_id is None:
-        return False
-    if norad_cat_id <= 69999:
-        return False
-    return not (90000 <= norad_cat_id <= 99999)
+    # Only catalog numbers that do not fit in five TLE columns (>99999) are
+    # remapped; 00000-99999 are emitted verbatim.
+    return norad_cat_id is not None and norad_cat_id > 99999
 
 
 def ensure_aliases(state: dict[str, Any]) -> None:
@@ -128,6 +137,8 @@ def ensure_aliases(state: dict[str, Any]) -> None:
     }
     used = set(real_reserved)
     aliases: dict[str, int] = {}
+    pending: list[str] = []
+    # Keep every already-assigned alias first so a new satellite can never steal one.
     for record in records:
         key = omm_identity(record)
         norad = parse_int(record.get("NORAD_CAT_ID"))
@@ -137,7 +148,10 @@ def ensure_aliases(state: dict[str, Any]) -> None:
         if current is not None and ALIAS_START <= current <= ALIAS_END and current not in used:
             aliases[key] = current
             used.add(current)
-            continue
+        else:
+            pending.append(key)
+    # New satellites take the smallest free alias (reusing numbers freed by deletion).
+    for key in pending:
         candidate = ALIAS_START
         while candidate <= ALIAS_END and candidate in used:
             candidate += 1
@@ -199,7 +213,7 @@ def merge_fetched(
             summary["skipped"] += 1
             continue
         existing_index = index.get(key)
-        if existing_index is None:
+        if existing_index is None and parse_int(record.get("NORAD_CAT_ID")) is None:
             object_id = str(record.get("OBJECT_ID") or "").strip().upper()
             object_name = str(record.get("OBJECT_NAME") or "").strip().upper()
             for existing_key, candidate_index in index.items():
@@ -234,8 +248,18 @@ def merge_fetched(
                 summary["details"].append({"key": key, "status": "updated", "record": record, "old": old})
                 accepted = True
             elif new_epoch is not None and old_epoch is not None and new_epoch == old_epoch:
-                summary["same"] += 1
-                summary["details"].append({"key": key, "status": "same", "record": record, "old": old})
+                new_designator = str(record.get("OBJECT_ID") or "").strip().upper()
+                old_designator = str(old.get("OBJECT_ID") or "").strip().upper()
+                if new_designator and new_designator != old_designator:
+                    # Same orbit, corrected international designator (INTDES):
+                    # refresh the stored OBJECT_ID in place instead of reporting "same".
+                    old["OBJECT_ID"] = record.get("OBJECT_ID")
+                    summary["updated"] += 1
+                    summary["details"].append({"key": key, "status": "updated", "record": old, "old": old})
+                    accepted = True
+                else:
+                    summary["same"] += 1
+                    summary["details"].append({"key": key, "status": "same", "record": record, "old": old})
             else:
                 summary["stale"] += 1
                 summary["details"].append({"key": key, "status": "stale", "record": record, "old": old})

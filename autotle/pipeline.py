@@ -85,8 +85,10 @@ def _hint_for_spec(spec: SatelliteSpec) -> str | None:
 def _find_existing_key(state: Mapping[str, Any], spec: SatelliteSpec) -> str | None:
     index = state_index(state)
     hint = _hint_for_spec(spec)
-    if hint and hint in index:
-        return hint
+    if hint:
+        # CATNR with a numeric NORAD id: the satellite number is the identifier,
+        # so never fall back to name / international-designator matching.
+        return hint if hint in index else None
     wanted_id = spec.id.strip().upper()
     name_query = spec.id if spec.query == "NAME" else spec.name
     wanted_name = re.sub(r"\s+", " ", name_query).strip().upper()
@@ -96,8 +98,14 @@ def _find_existing_key(state: Mapping[str, Any], spec: SatelliteSpec) -> str | N
             if str(source.get("_SAT_ID") or "").strip() == spec.id:
                 return key
         actual_object_id = str(record.get("OBJECT_ID") or "").upper()
-        if spec.query == "INTDES" and wanted_id and actual_object_id.startswith(wanted_id):
-            return key
+        if spec.query == "INTDES":
+            # INTDES is the identifier: match the designator only, never the name,
+            # so a renamed/renumbered object is not confused with a stale record.
+            compact_wanted = re.sub(r"[^A-Z0-9]", "", wanted_id)
+            compact_actual = re.sub(r"[^A-Z0-9]", "", actual_object_id)
+            if compact_wanted and compact_actual.startswith(compact_wanted):
+                return key
+            continue
         if wanted_id and actual_object_id == wanted_id:
             return key
         if wanted_name:
@@ -128,6 +136,21 @@ def _names_for_config(config: SatelliteListConfig, state: Mapping[str, Any], key
     return names
 
 
+def _with_list_names(records: Iterable[Mapping[str, Any]], names: Mapping[str, str]) -> list[Any]:
+    """Copy of the records whose OBJECT_NAME is overridden with the satellite-list name."""
+    result: list[Any] = []
+    for record in records:
+        key = omm_identity(record) or ""
+        list_name = names.get(key) if names else None
+        if list_name and str(record.get("OBJECT_NAME") or "").strip() != list_name:
+            labelled = dict(record)
+            labelled["OBJECT_NAME"] = list_name
+            result.append(labelled)
+        else:
+            result.append(record)
+    return result
+
+
 def _write_formats(
     config: SatelliteListConfig,
     state: Mapping[str, Any],
@@ -137,6 +160,7 @@ def _write_formats(
     records = _records_for_keys(state, keys)
     catalog = catalog_numbers(state)
     names = _names_for_config(config, state, keys)
+    omm_records = _with_list_names(records, names)
     formats = set(config.formats)
     outputs: list[str] = []
     output_dir = options.output_dir
@@ -167,19 +191,19 @@ def _write_formats(
         outputs.append(str(root_copy))
     if {"JSON", "JSON-PRETTY"} & formats:
         path = output_dir / f"{config.stem}.json"
-        _atomic_write(path, render_json_omms(records, pretty=True))
+        _atomic_write(path, render_json_omms(omm_records, pretty=True))
         outputs.append(str(path))
     if "KVN" in formats:
         path = output_dir / f"{config.stem}.kvn"
-        _atomic_write(path, render_kvn_omms(records))
+        _atomic_write(path, render_kvn_omms(omm_records))
         outputs.append(str(path))
     if "CSV" in formats:
         path = output_dir / f"{config.stem}.csv"
-        _atomic_write(path, render_csv_omms(records))
+        _atomic_write(path, render_csv_omms(omm_records))
         outputs.append(str(path))
     if "XML" in formats:
         path = output_dir / f"{config.stem}.xml"
-        _atomic_write(path, render_xml_omms(records))
+        _atomic_write(path, render_xml_omms(omm_records))
         outputs.append(str(path))
     return outputs
 
@@ -438,6 +462,8 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
         cached = _find_existing_key(state, spec)
         if cached:
             _append_key(report.keys, cached)
+            if spec.name:
+                state.setdefault("sources", {}).setdefault(cached, {})["_LIST_NAME"] = spec.name
         if not options.quiet:
             for entry in report.log_entries[log_start:]:
                 detail = f" | {entry.get('detail')}" if entry.get("detail") else ""
@@ -500,6 +526,7 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
     sources = state.get("sources") or {}
     status_map = state.get("status") or {}
     timestamps = state.get("timestamps") or {}
+    aliases = state.get("aliases") or {}
 
     def clean(value: Any) -> str:
         return str(value or "").replace("|", "\\|").replace("\n", " ").strip()
@@ -510,7 +537,7 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
         f"- generated: {run_started}",
         "- order: satellites.pkl ephemeris insertion order",
         "",
-        "| 卫星编号 | 卫星名称 | 星历来源 | 更新时间 | 定轨时间 (EPOCH) | 上一次更新状态 | 这一次更新状态 |",
+        "| 卫星编号 (TLE) | 卫星名称 | 星历来源 | 更新时间 | 定轨时间 (EPOCH) | 上一次更新状态 | 这一次更新状态 |",
         "|---|---|---|---|---|---|---|",
     ]
     for record in state.get("ephemeris", []):
@@ -520,10 +547,22 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
         source_format = str(source_meta.get("_SOURCE_FORMAT") or "").strip()
         if source_format:
             source = f"{source}:{source_format}"
+        source_name = str(record.get("OBJECT_NAME") or "").strip()
+        list_name = str(source_meta.get("_LIST_NAME") or "").strip()
+        if list_name and source_name and list_name != source_name:
+            name_cell = f"{source_name} / {list_name}"
+        else:
+            name_cell = source_name or list_name
+        real_norad = parse_int(record.get("NORAD_CAT_ID"))
+        tle_number = aliases.get(key)
+        if real_norad is not None and tle_number is not None and tle_number != real_norad:
+            number_cell = f"{real_norad} (TLE:{tle_number})"
+        else:
+            number_cell = record.get("NORAD_CAT_ID") or record.get("OBJECT_ID")
         status = status_map.get(key, {})
         lines.append("| " + " | ".join([
-            clean(record.get("NORAD_CAT_ID") or record.get("OBJECT_ID")),
-            clean(record.get("OBJECT_NAME")),
+            clean(number_cell),
+            clean(name_cell),
             clean(source),
             clean(timestamps.get(key, {}).get("update_time")),
             clean(record.get("EPOCH")),
@@ -533,7 +572,50 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
     _atomic_write(path, "\n".join(lines) + "\n")
 
 
-def _summary_from_reports(state: Mapping[str, Any] | None, reports: list[ListRunReport]) -> dict[str, int]:
+def _purge_unlisted_records(state: dict[str, Any], run_started: str) -> list[dict[str, str]]:
+    """Delete cached records left unprocessed by two consecutive runs (listed nowhere)."""
+    status_map = state.get("status") or {}
+    doomed = [
+        key for key, value in status_map.items()
+        if isinstance(value, Mapping)
+        and value.get("previous_status") == "未处理"
+        and value.get("current_status") == "未处理"
+    ]
+    if not doomed:
+        return []
+    doomed_set = set(doomed)
+    removed: list[dict[str, str]] = []
+    for record in state.get("ephemeris", []):
+        key = omm_identity(record) or ""
+        if key in doomed_set:
+            removed.append({
+                "time": run_started,
+                "key": key,
+                "list": "-",
+                "id": str(record.get("NORAD_CAT_ID") or record.get("OBJECT_ID") or ""),
+                "name": str(record.get("OBJECT_NAME") or ""),
+                "source": "-",
+                "status": "自动删除（连续两次未处理）",
+                "detail": "not present in any satellite list",
+            })
+    state["ephemeris"] = [
+        record for record in state.get("ephemeris", [])
+        if (omm_identity(record) or "") not in doomed_set
+    ]
+    for field in ("aliases", "sources", "status", "timestamps"):
+        target = state.get(field)
+        if isinstance(target, dict):
+            for key in doomed_set:
+                target.pop(key, None)
+    return removed
+
+
+def _summary_from_reports(
+    state: Mapping[str, Any] | None,
+    reports: list[ListRunReport],
+    failed_lists: Iterable[str] = (),
+) -> dict[str, int]:
+    list_errors = len(list(failed_lists))
     return {
         "lists": len(reports),
         "satellites": len(state.get("ephemeris", [])) if state else 0,
@@ -542,7 +624,8 @@ def _summary_from_reports(state: Mapping[str, Any] | None, reports: list[ListRun
         "stale": sum(report.stale for report in reports),
         "same": sum(report.same for report in reports),
         "skipped": sum(report.skipped for report in reports),
-        "errors": sum(len(report.errors) for report in reports),
+        "errors": sum(len(report.errors) for report in reports) + list_errors,
+        "list_errors": list_errors,
     }
 
 
@@ -651,7 +734,7 @@ def delete_state_records(options: PipelineOptions, values: Iterable[str]) -> dic
                 "detail": "",
             })
 
-    if remove_keys:
+    if remove_keys and not options.dry_run:
         state["ephemeris"] = [
             record for record in state.get("ephemeris", [])
             if (omm_identity(record) or "") not in remove_keys
@@ -664,9 +747,10 @@ def delete_state_records(options: PipelineOptions, values: Iterable[str]) -> dic
         ensure_aliases(state)
         save_state(options.state_path, state)
 
+    remaining = len(state.get("ephemeris", [])) - (len(remove_keys) if options.dry_run else 0)
     summary = {
         "lists": 0,
-        "satellites": len(state.get("ephemeris", [])),
+        "satellites": remaining,
         "added": 0,
         "updated": 0,
         "stale": 0,
@@ -687,13 +771,14 @@ def delete_state_records(options: PipelineOptions, values: Iterable[str]) -> dic
         }
         for item in details
     ]
-    _write_run_log(options.project_root / "logs.txt", started, log_entries, summary)
-    _write_status_md(options.project_root / "satellites_state.md", state, started)
+    if not options.dry_run:
+        _write_run_log(options.project_root / "logs.txt", started, log_entries, summary)
+        _write_status_md(options.project_root / "satellites_state.md", state, started)
     return {
         "requested": requested,
         "deleted": len(remove_keys),
         "missing": missing,
-        "remaining": len(state.get("ephemeris", [])),
+        "remaining": remaining,
         "details": details,
     }
 
@@ -707,6 +792,7 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
     top_error: str | None = None
     previous_statuses: dict[str, str] = {}
     status_updated = False
+    failed_lists: list[str] = []
     try:
         state = load_state(options.state_path)
         previous_statuses = {
@@ -721,6 +807,7 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
             try:
                 report = _process_list(options, state, path, fetch_cache)
             except Exception as exc:
+                failed_lists.append(path.name)
                 log_entries.append({
                     "time": datetime.now().astimezone().isoformat(timespec="seconds"),
                     "key": "",
@@ -736,13 +823,34 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
             log_entries.extend(report.log_entries)
         _update_status(state, previous_statuses, log_entries, started)
         status_updated = True
+        # Only drop unlisted records when every list was actually read: a partial
+        # run (--limit, or an unreadable list file) must never be treated as
+        # "this satellite is listed nowhere" or it would delete live data.
+        blockers = []
+        if options.limit is not None:
+            blockers.append("--limit in use")
+        if failed_lists:
+            blockers.append("could not read satellite list(s): " + ", ".join(failed_lists))
+        if blockers:
+            log_entries.append({
+                "time": datetime.now().astimezone().isoformat(timespec="seconds"),
+                "key": "",
+                "list": "-",
+                "id": "-",
+                "name": "-",
+                "source": "-",
+                "status": "跳过清理",
+                "detail": "unlisted records were NOT purged: " + "; ".join(blockers),
+            })
+        else:
+            log_entries.extend(_purge_unlisted_records(state, started))
         ensure_aliases(state)
         if not options.dry_run:
             options.output_dir.mkdir(parents=True, exist_ok=True)
             for report in reports:
                 report.outputs = _write_formats(report.config, state, report.keys, options)
             save_state(options.state_path, state)
-        summary = _summary_from_reports(state, reports)
+        summary = _summary_from_reports(state, reports, failed_lists)
         return {"state": state, "reports": reports, "summary": summary}
     except Exception as exc:
         top_error = str(exc)
@@ -763,12 +871,14 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
                 _update_status(state, previous_statuses, log_entries, started)
             except Exception:
                 pass
-        summary = _summary_from_reports(state, reports)
+        summary = _summary_from_reports(state, reports, failed_lists)
+        log_name = "logs_dry.txt" if options.dry_run else "logs.txt"
+        status_name = "satellites_state_dry.md" if options.dry_run else "satellites_state.md"
         try:
-            _write_run_log(options.project_root / "logs.txt", started, log_entries, summary, top_error)
+            _write_run_log(options.project_root / log_name, started, log_entries, summary, top_error)
         except Exception:
             pass
-        status_path = options.project_root / "satellites_state.md"
+        status_path = options.project_root / status_name
         try:
             if state is None:
                 _atomic_write(status_path, f"# AutoTLE Satellite Cache Status\n\n- generated: {started}\n")
