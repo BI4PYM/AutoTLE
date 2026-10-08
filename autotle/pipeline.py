@@ -56,6 +56,7 @@ class ListRunReport:
     outputs: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     log_entries: list[dict[str, str]] = field(default_factory=list)
+    key_statuses: dict[str, str] = field(default_factory=dict)
     added: int = 0
     updated: int = 0
     stale: int = 0
@@ -151,44 +152,52 @@ def _with_list_names(records: Iterable[Mapping[str, Any]], names: Mapping[str, s
     return result
 
 
+_RESERVED_ROOT_FILES = {"logs.txt", "logs_dry.txt"}
+
+
 def _write_formats(
     config: SatelliteListConfig,
     state: Mapping[str, Any],
     keys: list[str],
     options: PipelineOptions,
-) -> list[str]:
+) -> tuple[list[str], list[str]]:
     records = _records_for_keys(state, keys)
     catalog = catalog_numbers(state)
     names = _names_for_config(config, state, keys)
     omm_records = _with_list_names(records, names)
     formats = set(config.formats)
     outputs: list[str] = []
+    warnings: list[str] = []
     output_dir = options.output_dir
     root_tle_written = False
+
+    def write_root_copy(filename: str, text: str) -> None:
+        if filename.lower() in _RESERVED_ROOT_FILES:
+            warnings.append(
+                f"skipped project-root TLE '{filename}': the name is reserved for AutoTLE's own files"
+            )
+            return
+        target = options.project_root / filename
+        _atomic_write(target, text)
+        outputs.append(str(target))
 
     if {"TLE", "3LE"} & formats:
         path = output_dir / f"{config.stem}.txt"
         tle_text = render_tle(records, catalog, names, include_name=True)
         _atomic_write(path, tle_text)
         outputs.append(str(path))
-        root_copy = options.project_root / path.name
-        if root_copy.resolve() != path.resolve():
-            _atomic_write(root_copy, tle_text)
-            outputs.append(str(root_copy))
+        if path.resolve() != (options.project_root / path.name).resolve():
+            write_root_copy(path.name, tle_text)
         root_tle_written = True
     if "2LE" in formats:
         path = output_dir / f"{config.stem}.2le.txt"
         tle_text = render_tle(records, catalog, names, include_name=False)
         _atomic_write(path, tle_text)
         outputs.append(str(path))
-        root_copy = options.project_root / path.name
-        if root_copy.resolve() != path.resolve():
-            _atomic_write(root_copy, tle_text)
-            outputs.append(str(root_copy))
+        if path.resolve() != (options.project_root / path.name).resolve():
+            write_root_copy(path.name, tle_text)
     if not root_tle_written:
-        root_copy = options.project_root / f"{config.stem}.txt"
-        _atomic_write(root_copy, render_tle(records, catalog, names, include_name=True))
-        outputs.append(str(root_copy))
+        write_root_copy(f"{config.stem}.txt", render_tle(records, catalog, names, include_name=True))
     if {"JSON", "JSON-PRETTY"} & formats:
         path = output_dir / f"{config.stem}.json"
         _atomic_write(path, render_json_omms(omm_records, pretty=True))
@@ -205,7 +214,7 @@ def _write_formats(
         path = output_dir / f"{config.stem}.xml"
         _atomic_write(path, render_xml_omms(omm_records))
         outputs.append(str(path))
-    return outputs
+    return outputs, warnings
 
 
 def _status_text(status: str) -> str:
@@ -413,6 +422,7 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
                     )
                 )
                 _append_key(report.keys, key)
+                report.key_statuses.setdefault(key, cached.raw_status)
                 _bump_report_status(report, cached.raw_status)
         elif result.records:
             summary = merge_fetched(
@@ -435,6 +445,7 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
                     key=detail["key"],
                 )
                 report.log_entries.append(entry)
+                report.key_statuses.setdefault(detail["key"], detail["status"])
                 cache.records[detail["key"]] = CachedSatellite(
                     raw_status=detail["status"],
                     display_status=_status_text(detail["status"]),
@@ -463,7 +474,10 @@ def _process_list(options: PipelineOptions, state: dict[str, Any], list_path: Pa
         if cached:
             _append_key(report.keys, cached)
             if spec.name:
-                state.setdefault("sources", {}).setdefault(cached, {})["_LIST_NAME"] = spec.name
+                meta = state.setdefault("sources", {}).setdefault(cached, {})
+                seen = meta.setdefault("_LIST_NAMES", [])
+                if spec.name not in seen:
+                    seen.append(spec.name)
         if not options.quiet:
             for entry in report.log_entries[log_start:]:
                 detail = f" | {entry.get('detail')}" if entry.get("detail") else ""
@@ -548,11 +562,17 @@ def _write_status_md(path: Path, state: Mapping[str, Any], run_started: str) -> 
         if source_format:
             source = f"{source}:{source_format}"
         source_name = str(record.get("OBJECT_NAME") or "").strip()
-        list_name = str(source_meta.get("_LIST_NAME") or "").strip()
-        if list_name and source_name and list_name != source_name:
-            name_cell = f"{source_name} / {list_name}"
-        else:
-            name_cell = source_name or list_name
+        list_names = source_meta.get("_LIST_NAMES")
+        if list_names is None:
+            list_names = [source_meta.get("_LIST_NAME")] if source_meta.get("_LIST_NAME") else []
+        if isinstance(list_names, str):
+            list_names = [list_names]
+        parts: list[str] = []
+        for candidate in [source_name, *list_names]:
+            text = str(candidate or "").strip()
+            if text and text not in parts:
+                parts.append(text)
+        name_cell = " / ".join(parts)
         real_norad = parse_int(record.get("NORAD_CAT_ID"))
         tle_number = aliases.get(key)
         if real_norad is not None and tle_number is not None and tle_number != real_norad:
@@ -610,20 +630,33 @@ def _purge_unlisted_records(state: dict[str, Any], run_started: str) -> list[dic
     return removed
 
 
+_COUNTED_STATUSES = ("added", "updated", "stale", "same", "skipped")
+
+
 def _summary_from_reports(
     state: Mapping[str, Any] | None,
     reports: list[ListRunReport],
     failed_lists: Iterable[str] = (),
 ) -> dict[str, int]:
     list_errors = len(list(failed_lists))
+    # A satellite can appear in several lists: count every satellite once, using
+    # the status it got the first time it was seen this run.
+    unique: dict[str, str] = {}
+    for report in reports:
+        for key, status in report.key_statuses.items():
+            unique.setdefault(key, status)
+    counts = {name: 0 for name in _COUNTED_STATUSES}
+    for status in unique.values():
+        if status in counts:
+            counts[status] += 1
     return {
         "lists": len(reports),
         "satellites": len(state.get("ephemeris", [])) if state else 0,
-        "added": sum(report.added for report in reports),
-        "updated": sum(report.updated for report in reports),
-        "stale": sum(report.stale for report in reports),
-        "same": sum(report.same for report in reports),
-        "skipped": sum(report.skipped for report in reports),
+        "added": counts["added"],
+        "updated": counts["updated"],
+        "stale": counts["stale"],
+        "same": counts["same"],
+        "skipped": counts["skipped"],
         "errors": sum(len(report.errors) for report in reports) + list_errors,
         "list_errors": list_errors,
     }
@@ -795,6 +828,12 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
     failed_lists: list[str] = []
     try:
         state = load_state(options.state_path)
+        # List names are re-derived every run so a satellite dropped from a list
+        # stops being shown with that list's name.
+        for meta in (state.get("sources") or {}).values():
+            if isinstance(meta, dict):
+                meta.pop("_LIST_NAMES", None)
+                meta.pop("_LIST_NAME", None)
         previous_statuses = {
             key: str(value.get("current_status") or "首次记录")
             for key, value in (state.get("status") or {}).items()
@@ -848,7 +887,18 @@ def run_pipeline(options: PipelineOptions) -> dict[str, Any]:
         if not options.dry_run:
             options.output_dir.mkdir(parents=True, exist_ok=True)
             for report in reports:
-                report.outputs = _write_formats(report.config, state, report.keys, options)
+                report.outputs, warnings = _write_formats(report.config, state, report.keys, options)
+                for warning in warnings:
+                    log_entries.append({
+                        "time": datetime.now().astimezone().isoformat(timespec="seconds"),
+                        "key": "",
+                        "list": report.config.source_name,
+                        "id": "-",
+                        "name": "-",
+                        "source": "-",
+                        "status": "警告",
+                        "detail": warning,
+                    })
             save_state(options.state_path, state)
         summary = _summary_from_reports(state, reports, failed_lists)
         return {"state": state, "reports": reports, "summary": summary}
