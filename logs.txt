@@ -1,42 +1,42 @@
-AutoTLE run: 2026-10-14T10:34:11+08:00
-Summary: lists=1 satellites=38 added=0 updated=0 stale=0 same=32 skipped=0 errors=6
+AutoTLE run: 2026-10-14T14:34:13+08:00
+Summary: lists=1 satellites=38 added=0 updated=18 stale=0 same=19 skipped=0 errors=1
 
 time	list	satellite_id	name	source	status	detail
-2026-10-14T10:39:25+08:00	AutoTLE.json	25544	ISS (ZARYA)	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T10:44:40+08:00	AutoTLE.json	27607	SAUDISAT 1C	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T10:49:54+08:00	AutoTLE.json	43017	AO-91	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T10:55:09+08:00	AutoTLE.json	43678	DIWATA 2B	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:00:24+08:00	AutoTLE.json	44909	BREEZE-KM R/B	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:05:39+08:00	AutoTLE.json	7530	OSCAR 7	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:10:53+08:00	AutoTLE.json	40908	LILACSAT 2	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:16:07+08:00	AutoTLE.json	24278	JAS 2	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:21:22+08:00	AutoTLE.json	44879	OBJECT A	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:26:36+08:00	AutoTLE.json	48274	CSS (TIANHE-1)	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:31:49+08:00	AutoTLE.json	43803	JY1SAT	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:37:02+08:00	AutoTLE.json	57166	METEOR M2-3	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:42:16+08:00	AutoTLE.json	59051	METEOR M2-4	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:47:30+08:00	AutoTLE.json	50466	XW-3 (CAS 9)	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:52:44+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T11:58:04+08:00	AutoTLE.json	43700	ES'HAIL 2	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:03:19+08:00	AutoTLE.json	43823	GK-2A	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-10-14T12:08:33+08:00	AutoTLE.json	59112	SONATE-2	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:13:46+08:00	AutoTLE.json	61781	OBJECT AY	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:19:15+08:00	AutoTLE.json	60209	MO-122(MESAT-1)	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: json: HTTP 500; 3le: HTTP 500; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-10-14T12:24:29+08:00	AutoTLE.json	67291	OBJECT AV	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:29:42+08:00	AutoTLE.json	63237	OBJECT AD	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:34:57+08:00	AutoTLE.json	63239	OBJECT AF	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:40:11+08:00	AutoTLE.json	63238	OBJECT AE	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:45:24+08:00	AutoTLE.json	63215	OBJECT F	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:50:38+08:00	AutoTLE.json	63214	OBJECT E	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T12:55:52+08:00	AutoTLE.json	63213	OBJECT D	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:01:05+08:00	AutoTLE.json	63218	OBJECT J	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:06:19+08:00	AutoTLE.json	63219	OBJECT K	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:11:33+08:00	AutoTLE.json	63217	OBJECT H	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:16:47+08:00	AutoTLE.json	69000	Gemini-Pollux	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-10-14T13:22:02+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:27:16+08:00	AutoTLE.json	38771	METOP-B	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:32:30+08:00	AutoTLE.json	43689	METOP-C	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:37:45+08:00	AutoTLE.json	43491	FENGYUN 2H	satnogs:3le-json	星历源与缓存一致	
-2026-10-14T13:43:31+08:00	AutoTLE.json	40367	FENGYUN-2G	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: json: HTTP 500; 3le: HTTP 500; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-10-14T13:48:43+08:00	AutoTLE.json	2026-195E	BY-04	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
-2026-10-14T13:53:55+08:00	AutoTLE.json	2026-195F	JAMX01	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; KVN: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; TLE: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; satnogs: SatNOGS needs norad_cat_id or sat_id; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-10-14T14:38:52+08:00	AutoTLE.json	25544	ISS (ZARYA)	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T14:42:23+08:00	AutoTLE.json	27607	SAUDISAT 1C	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T14:47:15+08:00	AutoTLE.json	43017	AO-91	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T14:51:07+08:00	AutoTLE.json	43678	DIWATA 2B	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T14:55:01+08:00	AutoTLE.json	44909	BREEZE-KM R/B	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T14:58:36+08:00	AutoTLE.json	7530	OSCAR 7	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:02:08+08:00	AutoTLE.json	40908	LILACSAT 2	satnogs:3le	星历源与缓存一致	
+2026-10-14T15:05:02+08:00	AutoTLE.json	24278	JAS 2	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:07:58+08:00	AutoTLE.json	44879	OBJECT A	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:12:03+08:00	AutoTLE.json	48274	CSS (TIANHE-1)	satnogs:3le	星历源与缓存一致	
+2026-10-14T15:16:04+08:00	AutoTLE.json	43803	JY1SAT	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:19:31+08:00	AutoTLE.json	57166	METEOR M2-3	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:23:58+08:00	AutoTLE.json	59051	METEOR M2-4	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:27:36+08:00	AutoTLE.json	50466	XW-3 (CAS 9)	satnogs:3le-json	成功更新	
+2026-10-14T15:30:55+08:00	AutoTLE.json	53106	MT-CUBE-2	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:34:55+08:00	AutoTLE.json	43700	ES'HAIL 2	satnogs:3le-json	星历源与缓存一致	
+2026-10-14T15:37:57+08:00	AutoTLE.json	43823	GK-2A	celestrak,satnogs,localtle,localjson	失败（使用缓存）	celestrak: JSON: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; KVN: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; CSV: URLError: <urlopen error _ssl.c:1063: The handshake operation timed out>; XML: URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)>; TLE: RemoteDisconnected: Remote end closed connection without response; satnogs: json: no TLE records; 3le: 200; localtle: no matching local ephemeris; localjson: no matching local ephemeris
+2026-10-14T15:37:59+08:00	AutoTLE.json	59112	SONATE-2	celestrak:JSON	星历源与缓存一致	
+2026-10-14T15:38:01+08:00	AutoTLE.json	61781	ASRTU-1 (AO-123)	celestrak:JSON	成功更新	
+2026-10-14T15:38:05+08:00	AutoTLE.json	60209	MESAT1	celestrak:JSON	星历源与缓存一致	
+2026-10-14T15:38:07+08:00	AutoTLE.json	67291	QMR-KWT-2 (RS95S)	celestrak:JSON	成功更新	
+2026-10-14T15:38:15+08:00	AutoTLE.json	63237	TEVEL2-9	celestrak:JSON	成功更新	
+2026-10-14T15:38:16+08:00	AutoTLE.json	63239	TEVEL2-8	celestrak:JSON	星历源与缓存一致	
+2026-10-14T15:38:17+08:00	AutoTLE.json	63238	TEVEL2-7	celestrak:JSON	星历源与缓存一致	
+2026-10-14T15:38:18+08:00	AutoTLE.json	63215	TEVEL2-6	celestrak:JSON	成功更新	
+2026-10-14T15:38:20+08:00	AutoTLE.json	63214	TEVEL2-5	celestrak:JSON	成功更新	
+2026-10-14T15:38:22+08:00	AutoTLE.json	63213	TEVEL2-4	celestrak:JSON	成功更新	
+2026-10-14T15:38:23+08:00	AutoTLE.json	63218	TEVEL2-3	celestrak:JSON	成功更新	
+2026-10-14T15:38:24+08:00	AutoTLE.json	63219	TEVEL2-2	celestrak:JSON	成功更新	
+2026-10-14T15:38:28+08:00	AutoTLE.json	63217	TEVEL2-1	celestrak:JSON	成功更新	
+2026-10-14T15:38:29+08:00	AutoTLE.json	69000	GEMINI-POLLUX	celestrak:JSON	成功更新	
+2026-10-14T15:38:30+08:00	AutoTLE.json	68446	HADES-SA (SPINNYONE)	celestrak:JSON	成功更新	
+2026-10-14T15:38:34+08:00	AutoTLE.json	38771	METOP-B	celestrak:JSON	成功更新	
+2026-10-14T15:38:35+08:00	AutoTLE.json	43689	METOP-C	celestrak:JSON	成功更新	
+2026-10-14T15:40:45+08:00	AutoTLE.json	43491	FENGYUN 2H	celestrak:TLE	成功更新	
+2026-10-14T15:40:46+08:00	AutoTLE.json	40367	FENGYUN 2G	celestrak:JSON	成功更新	
+2026-10-14T15:40:47+08:00	AutoTLE.json	100469	BY70-4	celestrak:JSON	成功更新	
+2026-10-14T15:40:48+08:00	AutoTLE.json	100470	JAMX01 (JING'AN DREAM STAR)	celestrak:JSON	成功更新	
