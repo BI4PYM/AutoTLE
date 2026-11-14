@@ -196,6 +196,21 @@
       "id": "2026-195F",
       "name": "JAMX01",
       "query": "INTDES"
+    },
+	{
+      "id": "2026-227CP",
+      "name": "UNNE-1B(HADES-E2)",
+      "query": "INTDES"
+    },
+	{
+      "id": "2026-227CQ",
+      "name": "HADES-L",
+      "query": "INTDES"
+    },
+	{
+      "id": "2026-227CL",
+      "name": "ERMINAZ-2U",
+      "query": "INTDES"
     }
   ]
 }
